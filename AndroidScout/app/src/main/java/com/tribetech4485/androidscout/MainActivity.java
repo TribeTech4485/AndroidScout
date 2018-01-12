@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -119,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements
             writeStream.write(output.getBytes());
             writeStream.close();
             clearInputs();
+            makeToast("Saved Team Data");
             //setMessage(readDataFile(), false);
         } catch (Exception ex) {
             setMessage(ex.getMessage(), true);
@@ -157,11 +159,22 @@ public class MainActivity extends AppCompatActivity implements
         return readString;
     }
 
+    // Show notification
+    private void makeToast(String toastedMessage) {
+        Context context = getApplicationContext();
+        CharSequence text = toastedMessage;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
 
     // Gestures -----
     @Override
     public boolean onTouchEvent(MotionEvent event){
         this.mDetector.onTouchEvent(event);
+
         // Be sure to call the superclass implementation
         return super.onTouchEvent(event);
     }
