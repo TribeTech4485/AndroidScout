@@ -65,6 +65,7 @@
         android:layout_marginTop="41dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
@@ -186,34 +187,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/btn_back"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="15dp"
+                android:layout_weight="1"
+
+                android:background="@drawable/btn_back"
+                android:text="Save Data"
+                android:textAllCaps="false"
 
                 android:textColor="#AAAAAA"
-                android:textAllCaps="false"
-                android:textSize="20sp"
+                android:textSize="20sp" />
 
-                android:text="Save Data" />
+            <Button
+                android:id="@+id/dataManagerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+
+                android:background="@drawable/btn_back"
+                android:text="Manage Data"
+                android:textAllCaps="false"
+
+
+                android:textColor="#AAAAAA"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/uploadConnectButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/btn_back"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="15dp"
+                android:layout_weight="1"
+
+                android:background="@drawable/btn_back"
+                android:text="Upload Data"
+                android:textAllCaps="false"
+
 
                 android:textColor="#AAAAAA"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-
-
-
-                android:text="Upload Data To Server" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/messageText"

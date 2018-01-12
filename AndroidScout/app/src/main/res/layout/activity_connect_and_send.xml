@@ -110,7 +110,7 @@
                 android:layout_marginRight="8dp"
 
                 android:background="@drawable/btn_back"
-                android:text="Discoverable 300s"
+                android:text="Discoverable"
 
                 android:textAllCaps="false"
                 android:textColor="#AAAAAA"

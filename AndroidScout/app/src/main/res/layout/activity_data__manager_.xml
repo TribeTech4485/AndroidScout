@@ -8,33 +8,69 @@
     tools:context="com.tribetech4485.androidscout.Data_Manager_Activity">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="551dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="1.0">
+
+        <Button
+            android:id="@+id/moveToExtButton"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_back"
+            android:text="Move to External"
+            android:textAllCaps="false"
+
+            android:textColor="#AAAAAA"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/deleteButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            android:background="@drawable/btn_back"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+
             android:layout_marginTop="15dp"
-
-            android:textColor="#AAAAAA"
+            android:background="@drawable/btn_back"
+            android:text="Delete"
             android:textAllCaps="false"
-            android:textSize="20sp"
-            android:text="Delete" />
 
-        <TextView
-            android:id="@+id/fileText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
             android:textColor="#AAAAAA"
-            />
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/fileText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:textColor="#AAAAAA" />
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
