@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 300;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 600;
 
     private Button appendDataButton;
     private Button uploadConnectButton;
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements
         output += "Team Scale Rating:" + teamScaleRatingText.getText().toString() + "\n";
         output += "Team Switch Rating:" + teamSwitchRatingText.getText().toString() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
+        output += "!end!\n";
 
         FileOutputStream writeStream;
         try {
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements
             writeStream.write(output.getBytes());
             writeStream.close();
             clearInputs();
-            setMessage(readDataFile(), false);
+            //setMessage(readDataFile(), false);
         } catch (Exception ex) {
             setMessage(ex.getMessage(), true);
         }
