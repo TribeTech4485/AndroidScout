@@ -14,7 +14,7 @@
         <!-- Custom Dark Theme -->
         <item name="colorPrimary">#FFFFFF</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#9900EE</item>
+        <item name="colorAccent">#FF6E00</item>
 
     </style>
 
