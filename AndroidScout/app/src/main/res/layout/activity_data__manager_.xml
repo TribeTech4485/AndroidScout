@@ -29,12 +29,12 @@
             android:textSize="20sp"
             android:text="Delete" />
 
-        <EditText
-            android:id="@+id/multilineText"
+        <TextView
+            android:id="@+id/fileText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:textColor="#AAAAAA"
-            android:inputType="textMultiLine" />
+            />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
