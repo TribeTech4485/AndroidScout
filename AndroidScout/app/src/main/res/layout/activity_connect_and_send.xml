@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@android:color/black"
+    android:background="#000000"
 
     tools:context="com.tribetech4485.androidscout.ConnectAndSendActivity">
 
@@ -62,7 +62,26 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/bluetoothOnButton"
+                    android:id="@+id/sendDataBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/btn_back"
+
+                    android:textColor="#AAAAAA"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+
+                    android:onClick="sendDataBtn"
+
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+
+                    android:text="Send Data" />
+
+                <Button
+                    android:id="@+id/btOnOff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -76,9 +95,9 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
 
-                    android:text="Bluetooth On" />
+                    android:text="Bluetooth On/Off" />
 
-                <Button
+                <!--Button
                     android:id="@+id/bluetoothOffButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +112,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
 
-                    android:text="Bluetooth Off" />
+                    android:text="Bluetooth Off" /-->
             </LinearLayout>
 
 
@@ -108,6 +127,8 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
+
+                android:onClick="btnEnableDisable_Discoverable"
 
                 android:background="@drawable/btn_back"
                 android:text="Discoverable"
@@ -125,6 +146,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
 
+                android:onClick="btnDiscover"
+
                 android:background="@drawable/btn_back"
                 android:text="Discover"
 
@@ -134,18 +157,17 @@
                 android:textSize="20sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/statusText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:textColor="#AAAAAA"
-                android:text=""/>
-
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
-                android:layout_height="140dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:clickable="true"
+                android:focusable="true"
+
+                />
 
         </LinearLayout>
     </ScrollView>
