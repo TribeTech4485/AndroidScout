@@ -96,6 +96,11 @@
                     android:text="Bluetooth Off" />
             </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
             <Button
                 android:id="@+id/discoverableButton"
                 android:layout_width="170dp"
@@ -105,12 +110,42 @@
                 android:layout_marginRight="8dp"
 
                 android:background="@drawable/btn_back"
-                android:text="Discoverable"
+                android:text="Discoverable 300s"
 
                 android:textAllCaps="false"
                 android:textColor="#AAAAAA"
 
                 android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/discoverButton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+
+                android:background="@drawable/btn_back"
+                android:text="Discover"
+
+                android:textAllCaps="false"
+                android:textColor="#AAAAAA"
+
+                android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textColor="#AAAAAA"
+                android:text=""/>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="140dp" />
 
         </LinearLayout>
     </ScrollView>
