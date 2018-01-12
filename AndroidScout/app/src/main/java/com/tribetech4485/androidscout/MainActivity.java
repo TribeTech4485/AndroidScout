@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         FileOutputStream writeStream;
         try {
-            writeStream = openFileOutput(teamDataPath, Context.MODE_PRIVATE);
+            writeStream = openFileOutput(teamDataPath, Context.MODE_APPEND);
             writeStream.write(output.getBytes());
             writeStream.close();
             clearInputs();
