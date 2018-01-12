@@ -13,16 +13,20 @@
     <LinearLayout
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_width="0px"
-        android:layout_height="0px"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
     to prevent the dummy from receiving focus again -->
     <AutoCompleteTextView android:id="@+id/autotext"
-        android:layout_width="fill_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nextFocusUp="@id/autotext"
-        android:nextFocusLeft="@id/autotext"/>
+        android:nextFocusLeft="@id/autotext"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -57,20 +61,25 @@
         android:layout_marginTop="8dp" />
 
     <ScrollView
-        android:layout_width="376dp"
-        android:layout_height="fill_parent"
-        android:paddingTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="374dp"
+        android:layout_height="595dp"
+        android:paddingTop="60dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="41dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="69dp"
+        tools:layout_editor_absoluteX="6dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp">
 
             <EditText
                 android:id="@+id/teamNumberText"
@@ -181,39 +190,47 @@
                 tools:layout_editor_absoluteX="-47dp"
                 tools:layout_editor_absoluteY="56dp" />
 
-            <Button
-                android:id="@+id/appendToDataButton"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                android:background="@drawable/btn_back"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="15dp"
+                <Button
+                    android:id="@+id/uploadConnectButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                android:textColor="#AAAAAA"
-                android:textAllCaps="false"
-                android:textSize="20sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
 
-                android:text="Save Data" />
-
-            <Button
-                android:id="@+id/uploadConnectButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:background="@drawable/btn_back"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="15dp"
-
-                android:textColor="#AAAAAA"
-                android:textAllCaps="false"
-                android:textSize="20sp"
+                    android:background="@drawable/btn_back"
+                    android:text="Upload Data"
+                    android:textAllCaps="false"
 
 
+                    android:textColor="#AAAAAA"
+                    android:textSize="20sp" />
 
-                android:text="Upload Data To Server" />
+                <Button
+                    android:id="@+id/appendToDataButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/btn_back"
+                    android:text="Finished Team"
+                    android:textAllCaps="false"
+
+                    android:textColor="#AAAAAA"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/messageText"
