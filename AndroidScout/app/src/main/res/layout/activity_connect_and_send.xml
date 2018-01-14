@@ -55,119 +55,35 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <LinearLayout
+            <Button
+                android:id="@+id/sendDataBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/sendDataBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:background="@drawable/btn_back"
-
-                    android:textColor="#AAAAAA"
-                    android:textAllCaps="false"
-                    android:textSize="20sp"
-
-                    android:onClick="sendDataBtn"
-
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-
-                    android:text="Send Data" />
-
-                <Button
-                    android:id="@+id/btOnOff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:background="@drawable/btn_back"
-
-                    android:textColor="#AAAAAA"
-                    android:textAllCaps="false"
-                    android:textSize="20sp"
-
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-
-                    android:text="Bluetooth On/Off" />
-
-                <!--Button
-                    android:id="@+id/bluetoothOffButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:background="@drawable/btn_back"
-
-                    android:textColor="#AAAAAA"
-                    android:textAllCaps="false"
-                    android:textSize="20sp"
-
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-
-                    android:text="Bluetooth Off" /-->
-            </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/discoverableButton"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="8dp"
-
-                android:onClick="btnEnableDisable_Discoverable"
+                android:layout_weight="1"
 
                 android:background="@drawable/btn_back"
-                android:text="Discoverable"
 
-                android:textAllCaps="false"
                 android:textColor="#AAAAAA"
+                android:textAllCaps="false"
+                android:textSize="20sp"
 
-                android:textSize="20sp" />
+                android:onClick="sendDataBtn"
 
-            <Button
-                android:id="@+id/discoverButton"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
 
-                android:onClick="btnDiscover"
+                android:text="Send Data" />
 
-                android:background="@drawable/btn_back"
-                android:text="Discover"
-
-                android:textAllCaps="false"
-                android:textColor="#AAAAAA"
-
-                android:textSize="20sp" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/listView"
+            <TextView
+                android:id="@+id/logText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:textColor="#AAAAAA"
+                android:textAlignment="center"
                 android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:clickable="true"
-                android:focusable="true"
-
-                />
+                android:text="TextView" />
 
         </LinearLayout>
     </ScrollView>
