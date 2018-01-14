@@ -1,293 +1,114 @@
 package com.tribetech4485.androidscout;
 
-import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Build;
-import android.os.ParcelUuid;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.UUID;
 
-import static android.bluetooth.BluetoothAdapter.STATE_CONNECTED;
-
-public class ConnectAndSendActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
-    private static final String TAG = "ConnectAndSendActivity";
+public class ConnectAndSendActivity extends AppCompatActivity {
     private String teamDataPath = "TeamData.list";
 
-    BluetoothAdapter bluetoothAdapter;
-    public ArrayList<BluetoothDevice> BTDevices = new ArrayList<>();
-    public DeviceListAdapter deviceListAdapter;
-    ListView lvNewDevices;
+    BluetoothSocket mmSocket;
+    BluetoothDevice mmDevice = null;
 
-    private Button btnOnOff;
+    private Button sendButton;
+    private TextView logText;
 
-
-    // Create a BroadcastReceiver for ACTION_FOUND.
-    private final BroadcastReceiver broadcastReceiver1 = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(bluetoothAdapter.ACTION_STATE_CHANGED)) {
-                final int state = intent.getIntExtra(bluetoothAdapter.EXTRA_STATE, bluetoothAdapter.ERROR);
-
-                switch (state) {
-                    case BluetoothAdapter.STATE_OFF:
-                        Log.d(TAG, "onReceive: STATE_OFF");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_OFF:
-                        Log.d(TAG, "broadcastReceiver1: STATE_TURNING_OFF");
-                        break;
-                    case BluetoothAdapter.STATE_ON:
-                        Log.d(TAG, "broadcastReceiver1: STATE_ON");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_ON:
-                        Log.d(TAG, "broadcastReceiver1: STATE_TURNING_ON");
-                        break;
-
-                }
-            }
-        }
-    };
-    private final BroadcastReceiver broadcastReceiver2 = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(bluetoothAdapter.ACTION_SCAN_MODE_CHANGED)) {
-                final int state = intent.getIntExtra(bluetoothAdapter.EXTRA_STATE, bluetoothAdapter.ERROR);
-
-                switch (state) {
-                    case BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE:
-                        Log.d(TAG, "broadcastReceiver2: SCAN_MODE_CONNECTABLE_DISCOVERABLE");
-                        break;
-                    case BluetoothAdapter.SCAN_MODE_CONNECTABLE:
-                        Log.d(TAG, "broadcastReceiver2: SCAN_MODE_CONNECTABLE");
-                        break;
-                    case BluetoothAdapter.SCAN_MODE_NONE:
-                        Log.d(TAG, "broadcastReceiver2: SCAN_MODE_NONE");
-                        break;
-                    case BluetoothAdapter.STATE_CONNECTING:
-                        Log.d(TAG, "broadcastReceiver2: STATE_CONNECTING");
-                        break;
-                    case STATE_CONNECTED:
-                        Log.d(TAG, "broadcastReceiver2: STATE_CONNECTED");
-                        break;
-                }
-            }
-        }
-    };
-    private final BroadcastReceiver broadcastReceiver3 = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
-
-            if (action.equals(BluetoothDevice.ACTION_FOUND)) {
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                BTDevices.add(device);
-                Log.d(TAG, "onReceive: " + device.getName() + ": " + device.getAddress());
-                deviceListAdapter = new DeviceListAdapter(context, R.layout.device_adapter_view, BTDevices);
-                lvNewDevices.setAdapter(deviceListAdapter);
-            }
-        }
-    };
-    private final BroadcastReceiver broadcastReceiver4 = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            final String action = intent.getAction();
-
-            if (action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) {
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // 3 cases
-                // case 1: bonded already
-                if (device.getBondState() == BluetoothDevice.BOND_BONDED){
-                    Log.d(TAG, "BroadcastReceiver: BOND_BONDED");
-                }
-                // case 2: creating a bond
-                if (device.getBondState() == BluetoothDevice.BOND_BONDING) {
-                    Log.d(TAG, "BroadcastReceiver: BOND_BONDING");
-                }
-                // case 3: breaking a bond
-                if (device.getBondState() == BluetoothDevice.BOND_NONE) {
-                    Log.d(TAG, "BroadcastReceiver: BOND_NONE");
-                }
-            }
-        }
-    };
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(broadcastReceiver1);
-        unregisterReceiver(broadcastReceiver2);
-        unregisterReceiver(broadcastReceiver3);
-        unregisterReceiver(broadcastReceiver4);
-    }
+    boolean connected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_and_send);
 
-        btnOnOff = (Button) findViewById(R.id.btOnOff);
+        sendButton = (Button) findViewById(R.id.sendDataBtn);
+        logText = (TextView) findViewById(R.id.logText);
 
-        lvNewDevices = (ListView) findViewById(R.id.listView);
-        BTDevices = new ArrayList<>();
+        connected = connectToDevice();
+        if (connected) setLogMessage("Device Connected!", false);
+        else setLogMessage("Device Disconnected", false);
+    }
 
-        // Broadcasts when bond state changes (ie:pairing)
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-        registerReceiver(broadcastReceiver4, filter);
+    private boolean connectToDevice() {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
-
-        lvNewDevices.setOnItemClickListener(ConnectAndSendActivity.this);
-
-        showBT(bluetoothAdapter.isEnabled());
-
-
-        btnOnOff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                enableDisableBT();
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        if(pairedDevices.size() > 0)
+        {
+            for(BluetoothDevice device : pairedDevices)
+            {
+                if(device.getName().equals("4485-M8") || device.getAddress().equals("00:1A:7D:DA:71:13")) //Note, you will need to change this to match the name and address of your device
+                {
+                    Log.e("4485-M8",device.getName());
+                    mmDevice = device;
+                    return true;
+                }
             }
-        });
-
+        }
+        return false;
     }
 
-    private void showBT(boolean enabled) {
-        if (enabled) {
-            btnOnOff.setBackgroundResource(R.drawable.btn_back_bluetooth);
-            btnOnOff.setText("Disable");
-        } else {
-            btnOnOff.setBackgroundResource(R.drawable.btn_back);
-            btnOnOff.setText("Enable");
-        }
-    }
-
-    public void enableDisableBT() {
-        if (bluetoothAdapter == null) {
-            Log.d(TAG, "enableDisableBT: device cannot use bluetooth.");
-        }
-        if (!bluetoothAdapter.isEnabled()) {
-            Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivity(enableBTIntent);
-
-            IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(broadcastReceiver1, BTIntent);
-
-            showBT(true);
-        }
-        if (bluetoothAdapter.isEnabled()) {
-            bluetoothAdapter.disable();
-            IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(broadcastReceiver1, BTIntent);
-
-            showBT(false);
-        }
-    }
-
-    public void btnEnableDisable_Discoverable(View view) {
-        Log.d(TAG, "DiscoverableButton: Making device discoverable for 300 seconds.");
-
-        Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-        discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-
-        startActivity(discoverableIntent);
-
-        IntentFilter intentFilter = new IntentFilter(bluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
-        registerReceiver(broadcastReceiver2, intentFilter);
-    }
-
-    public void btnDiscover(View view) {
-        if (bluetoothAdapter.isDiscovering()) {
-            bluetoothAdapter.cancelDiscovery();
-
-            checkBTPermissions();
-
-            bluetoothAdapter.startDiscovery();
-            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-            registerReceiver(broadcastReceiver3, discoverDevicesIntent);
-        }
-        if (!bluetoothAdapter.isDiscovering()) {
-            checkBTPermissions();
-
-            bluetoothAdapter.startDiscovery();
-            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-            registerReceiver(broadcastReceiver3, discoverDevicesIntent);
-        }
-    }
-
-    private void checkBTPermissions() {
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
-            int permissionCheck = this.checkSelfPermission("Manifest.permission.ACCESS_FINE_LOCATION");
-            permissionCheck += this.checkSelfPermission("Manifest.permission.ACCESS_COARSE_LOCATION");
-            if (permissionCheck != 0) {
-
-                this.requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1001); //Any number
-            }
-        }else{
-            Log.d(TAG, "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
-        }
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // First cancel discovery because it's memory intensive
-        bluetoothAdapter.cancelDiscovery();
-
-        Log.d(TAG, "onItemClick: You clicked on a device.");
-        String deviceName = BTDevices.get(position).getName();
-        String deviceAddress = BTDevices.get(position).getName();
-
-        Log.d(TAG, "onItemClick: deviceName = " + deviceName);
-        Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
-
-        // create the bond
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            Log.d(TAG, "Trying to pair with " + deviceName);
-            BTDevices.get(position).createBond();
-        }
-    }
-
-    // Send the data over bluetooth
-    private void sendData(String sendMessage) {
+    private boolean sendBtMsg(String msg2send){
+        //UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Standard SerialPortService ID
+        UUID uuid = UUID.fromString("94f39d29-7d6d-437d-973b-fba39e49d4ee"); //Standard SerialPortService ID
         try {
-            BluetoothDevice[] devices = (BluetoothDevice[]) bluetoothAdapter.getBondedDevices().toArray();
-            BluetoothDevice device = devices[0];
-            ParcelUuid[] uuids = device.getUuids();
-            BluetoothSocket socket = device.createRfcommSocketToServiceRecord(uuids[0].getUuid());
-            socket.connect();
+            if (mmSocket != null) if (mmSocket.isConnected()) mmSocket.close();
 
-            OutputStream outputStream;
-            outputStream = socket.getOutputStream();
-            InputStream inputStream;
-            inputStream = socket.getInputStream();
+            mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);
+            if (!mmSocket.isConnected()){
+                mmSocket.connect();
+            }
 
-            outputStream.write(sendMessage.getBytes());
+            String msg = msg2send;
+            //msg += "\n";
+            OutputStream mmOutputStream = mmSocket.getOutputStream();
+            mmOutputStream.write(msg.getBytes());
 
-            outputStream.close();
-            inputStream.close();
-        } catch (Exception ex) {}
+            msg = "#";
+            mmOutputStream.write(msg.getBytes());
 
+            mmSocket.close();
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            setLogMessage("Error Sending: " + e.getMessage(), true);
+            return false;
+        }
+        return true;
     }
 
-    public void sendDataBtn(View view) {
-        sendData(readDataFile());
+    private void setLogMessage(String message, boolean error) {
+        if (error) logText.setTextColor(Color.RED);
+        else logText.setTextColor(Color.WHITE);
+
+        logText.setText(message);
+    }
+
+    private boolean checkFileExists() {
+        try {
+            File dir = getFilesDir();
+            File file = new File(dir, teamDataPath);
+            if (file.exists()) return true;
+        } catch (Exception ex) {
+        }
+        return false;
     }
 
     private String readDataFile() {
@@ -302,17 +123,21 @@ public class ConnectAndSendActivity extends AppCompatActivity implements Adapter
                 // convert to char and display it
                 readString += (char) content;
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+            setLogMessage(ex.getMessage(), true);
+        }
         return readString;
     }
 
-    private boolean checkFileExists() {
-        try {
-            File dir = getFilesDir();
-            File file = new File(dir, teamDataPath);
-            if (file.exists()) return true;
-        } catch (Exception ex) {
+    // Send data with button press
+    public void sendDataBtn(View view) {
+        String dataFileContents = readDataFile();
+        if (dataFileContents == "") setLogMessage("File Contents Empty! Collect some team data, then send it.", false);
+        else if (!connected) setLogMessage("Not connected to server!", true);
+        else if (connected) {
+            for (int i = 0; i < 3; i++) {
+                if (sendBtMsg(dataFileContents)) break;
+            }
         }
-        return false;
     }
 }
