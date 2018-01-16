@@ -74,6 +74,26 @@
 
                 android:text="Send Data" />
 
+            <Button
+                android:id="@+id/connectBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:background="@drawable/btn_back"
+
+                android:textColor="#AAAAAA"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+
+                android:onClick="connectBtn"
+
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+
+                android:text="Connect" />
+
             <TextView
                 android:id="@+id/logText"
                 android:layout_width="match_parent"

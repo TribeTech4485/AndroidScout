@@ -27,7 +27,6 @@ public class ConnectAndSendActivity extends AppCompatActivity {
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice = null;
 
-    private Button sendButton;
     private TextView logText;
 
     boolean connected = false;
@@ -37,10 +36,13 @@ public class ConnectAndSendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect_and_send);
 
-        sendButton = (Button) findViewById(R.id.sendDataBtn);
         logText = (TextView) findViewById(R.id.logText);
 
         connected = connectToDevice();
+        showConnected();
+    }
+
+    private void showConnected() {
         if (connected) setLogMessage("Device Connected!", false);
         else setLogMessage("Device Disconnected", false);
     }
@@ -55,12 +57,14 @@ public class ConnectAndSendActivity extends AppCompatActivity {
             {
                 if(device.getName().equals("4485-M8") || device.getAddress().equals("00:1A:7D:DA:71:13")) //Note, you will need to change this to match the name and address of your device
                 {
+                    setLogMessage("Found Specified Device: " + device.getAddress().toString(), false);
                     Log.e("4485-M8",device.getName());
                     mmDevice = device;
                     return true;
                 }
             }
         }
+        setLogMessage("Could Not Find Specified Device.", false);
         return false;
     }
 
@@ -138,6 +142,14 @@ public class ConnectAndSendActivity extends AppCompatActivity {
             for (int i = 0; i < 3; i++) {
                 if (sendBtMsg(dataFileContents)) break;
             }
+        }
+    }
+
+    public void connectBtn(View view) {
+        if (connected) setLogMessage("Already Connected to Device.", false);
+        else {
+            connected = connectToDevice();
+            showConnected();
         }
     }
 }
