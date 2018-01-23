@@ -33,7 +33,8 @@ Move the parser into the parent directory of AndroidScout
 
 Move "bt_text_rcv.py" to the parent directory of AndroidScout
 	
-	"mv LinuxUtils/bt_text_rcv.py ."
+	"cd ../.."
+	"mv LinuxUtils/rf_text_rcv.py ."
 
 Now we can write a bash script to run everything
 	
@@ -43,7 +44,7 @@ Add the following content to the file:
 	
 	#!/bin/sh
 	
-	sudo python bt_text_rcv.py
+	sudo python rf_text_rcv.py
 	./SimpleParser TeamData.list TeamDataTable.csv
 
 Now hit control+X to exit, when prompted you will hit Y for 'yes' to save your file.
