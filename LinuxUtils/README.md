@@ -45,10 +45,28 @@ Add the following content to the file:
 	#!/bin/sh
 	
 	sudo python rf_text_rcv.py
-	./SimpleParser TeamData.list TeamDataTable.csv
+	./SimpleParser TeamData.list TeamDataTable.csv y
 
 Now hit control+X to exit, when prompted you will hit Y for 'yes' to save your file.
 
 Now make the script executable
 	
 	"chmod +x scout.sh" 
+
+Run the script
+	
+	"./script.sh"
+	
+If there was no error you are done!
+
+If there was an error, find the location of the bluetooth service
+	
+	"systemctl status bluetooth.service"
+	
+Edit the bluetooth.service (as root) and look for: "ExecStart=/usr/libexec/bluetooth/bluetoothd
+Append --compat to the end of the line
+The line should now look like this
+	
+	ExecStart=/usr/libexec/bluetooth/bluetoothd --compat
+	
+Now exit and save like before.
