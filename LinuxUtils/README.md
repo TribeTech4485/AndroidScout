@@ -23,7 +23,7 @@ Install the dependencies for the python utility and to build the parser
 
 Build the parser
 	
-	"cd LinuxUtils/SimpleParser"
+	"cd LinuxUtils/SimpleParserCpp"
 	"cmake ."
 	"make"
 
