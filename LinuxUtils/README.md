@@ -31,7 +31,7 @@ Now we can write a bash script to run everything
 Add the following content to the file:
 	#!/bin/sh
 	
-	sudo python bt_rcv_text.py
+	sudo python bt_text_rcv.py
 	./SimpleParser TeamData.list TeamDataTable.csv
 
 Now hit control+X to exit, when prompted you will hit Y for 'yes' to save your file.
