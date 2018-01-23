@@ -18,18 +18,22 @@ Install the dependencies for the python utility and to build the parser
 	
 	"sudo apt-get update && sudo apt-get upgrade -y"
 	"sudo apt-get install python python-dev python-bluez bluez"
-	"sudo apt-get install cmake build-essentials gcc"
+	"sudo apt-get install cmake build-essential gcc"
 
 
 Build the parser
 	
-	"cd SimpleParser"
+	"cd LinuxUtils/SimpleParser"
 	"cmake ."
 	"make"
 
 Move the parser into the parent directory of AndroidScout
 	
-	"mv SimpleParser .."
+	"mv SimpleParser ../.."
+
+Move "bt_text_rcv.py" to the parent directory of AndroidScout
+	
+	"mv LinuxUtils/bt_text_rcv.py ."
 
 Now we can write a bash script to run everything
 	
