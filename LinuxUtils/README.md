@@ -11,7 +11,7 @@ Download the Android Scout repository
 
 Move the LinuxUtils directory to the parent direcotry of AndroidScout
 	
-	"mv AndroidScout/LinuxUtils/ . -rf"
+	"mv AndroidScout/LinuxUtils/ ."
 
 
 Install the dependencies for the python utility and to build the parser
