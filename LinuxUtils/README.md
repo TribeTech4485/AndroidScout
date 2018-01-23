@@ -1,34 +1,42 @@
 # Setting up inux Utilities for scouting with Android Scout
 
 First create a directory for the utilites
-"mkdir ~/Scouting"
-"cd ~/Scouting"
+	
+	"mkdir ~/Scouting"
+	"cd ~/Scouting"
 
 Download the Android Scout repository
-"git clone http://github.com/TribeTech4485/AndroidScout.git"
+	
+	"git clone http://github.com/TribeTech4485/AndroidScout.git"
 
 Move the LinuxUtils directory to the parent direcotry of AndroidScout
-"mv AndroidScout/LinuxUtils/ . -rf"
+	
+	"mv AndroidScout/LinuxUtils/ . -rf"
 
 
 Install the dependencies for the python utility and to build the parser
-"sudo apt-get update && sudo apt-get upgrade -y"
-"sudo apt-get install python python-dev python-bluez bluez"
-"sudo apt-get install cmake build-essentials gcc"
+	
+	"sudo apt-get update && sudo apt-get upgrade -y"
+	"sudo apt-get install python python-dev python-bluez bluez"
+	"sudo apt-get install cmake build-essentials gcc"
 
 
 Build the parser
-"cd SimpleParser"
-"cmake ."
-"make"
+	
+	"cd SimpleParser"
+	"cmake ."
+	"make"
 
 Move the parser into the parent directory of AndroidScout
-"mv SimpleParser .."
+	
+	"mv SimpleParser .."
 
 Now we can write a bash script to run everything
-"nano scout.sh"
+	
+	"nano scout.sh"
 
 Add the following content to the file:
+	
 	#!/bin/sh
 	
 	sudo python bt_text_rcv.py
@@ -37,4 +45,5 @@ Add the following content to the file:
 Now hit control+X to exit, when prompted you will hit Y for 'yes' to save your file.
 
 Now make the script executable
-"chmod +x scout.sh" 
+	
+	"chmod +x scout.sh" 
