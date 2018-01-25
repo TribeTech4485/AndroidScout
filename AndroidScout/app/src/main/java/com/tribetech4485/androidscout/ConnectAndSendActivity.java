@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +17,13 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
+
+// TODO: rewrite bluetooth code
 
 public class ConnectAndSendActivity extends AppCompatActivity {
     private String teamDataPath = "TeamData.list";
@@ -30,6 +34,15 @@ public class ConnectAndSendActivity extends AppCompatActivity {
     private TextView logText;
 
     boolean connected = false;
+
+
+    // Data rcv
+    InputStream mmInputStream;
+    Thread workerThread;
+    byte[] readBuffer;
+    int readBufferPosition;
+    volatile boolean stopWorker;
+    String rcvText = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +75,7 @@ public class ConnectAndSendActivity extends AppCompatActivity {
                     Log.e("4485-M8",device.getName());
                     mmDevice = device;
                     return true;
+
                 }
             }
         }
@@ -97,6 +111,63 @@ public class ConnectAndSendActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    private void beginListeningForData() {
+
+        final Handler handler = new Handler();
+        final byte delimiter = 10; //This is the ASCII code for a newline character
+
+        stopWorker = false;
+        readBufferPosition = 0;
+        readBuffer = new byte[1024];
+        workerThread = new Thread(new Runnable()
+        {
+            public void run()
+            {
+                while(!Thread.currentThread().isInterrupted() && !stopWorker)
+                {
+                    try
+                    {
+                        int bytesAvailable = mmInputStream.available();
+                        if(bytesAvailable > 0)
+                        {
+                            byte[] packetBytes = new byte[bytesAvailable];
+                            mmInputStream.read(packetBytes);
+                            for(int i=0;i<bytesAvailable;i++)
+                            {
+                                byte b = packetBytes[i];
+                                if(b == delimiter)
+                                {
+                                    byte[] encodedBytes = new byte[readBufferPosition];
+                                    System.arraycopy(readBuffer, 0, encodedBytes, 0, encodedBytes.length);
+                                    final String data = new String(encodedBytes, "US-ASCII");
+                                    readBufferPosition = 0;
+
+                                    handler.post(new Runnable()
+                                    {
+                                        public void run()
+                                        {
+                                            rcvText = data;
+                                        }
+                                    });
+                                }
+                                else
+                                {
+                                    readBuffer[readBufferPosition++] = b;
+                                }
+                            }
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        stopWorker = true;
+                    }
+                }
+            }
+        });
+
+        workerThread.start();
     }
 
     private void setLogMessage(String message, boolean error) {
