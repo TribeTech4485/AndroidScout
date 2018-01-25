@@ -160,7 +160,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
 
-                android:text="Send Data" />
+                android:text="Save Device" />
 
         </LinearLayout>
     </ScrollView>
