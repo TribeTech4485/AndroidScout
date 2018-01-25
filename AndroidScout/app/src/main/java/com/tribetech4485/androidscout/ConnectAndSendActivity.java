@@ -224,7 +224,7 @@ public class ConnectAndSendActivity extends AppCompatActivity {
     private void saveData(String path, String content) {
         FileOutputStream writeStream;
         try {
-            writeStream = openFileOutput(path, Context.MODE_APPEND);
+            writeStream = openFileOutput(path, Context.MODE_PRIVATE);
             writeStream.write(content.getBytes());
             writeStream.close();
             //setMessage(readDataFile(), false);
