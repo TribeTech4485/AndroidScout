@@ -15,9 +15,7 @@ advertise_service( server_sock, "4485-M8",
 #                   protocols = [ OBEX_UUID ] 
                     )
 
-
 while True:
-	print "Waiting for connection...."
 	filePath = "TeamData.list"
 	f = open(filePath,"a+")
 	f.write("\n\n!-----------------------\n\n")
