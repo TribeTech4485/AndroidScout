@@ -238,6 +238,9 @@ public class ConnectAndSendActivity extends AppCompatActivity {
 
         if (checkFileExists(nameStorePath)) deviceName = readDataFile(nameStorePath);
         else deviceName = "Device Name";
+
+        deviceAddrText.setText(deviceAddress);
+        deviceNameText.setText(deviceName);
     }
 
     // Send data with button press
