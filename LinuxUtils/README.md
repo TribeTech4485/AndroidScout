@@ -44,7 +44,7 @@ Add the following content to the file:
 	
 	#!/bin/sh
 	
-	sudo python rf_text_rcv.py
+	sudo python rf_text_rcv.py &
 	./SimpleParser TeamData.list TeamDataTable.csv y
 
 Now hit control+X to exit, when prompted you will hit Y for 'yes' to save your file.
@@ -55,7 +55,7 @@ Now make the script executable
 
 Run the script
 	
-	"./script.sh"
+	"./scout.sh"
 	
 If there was no error you are done!
 
