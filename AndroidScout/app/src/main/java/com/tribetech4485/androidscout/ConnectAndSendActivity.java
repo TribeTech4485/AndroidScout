@@ -55,7 +55,8 @@ public class ConnectAndSendActivity extends AppCompatActivity {
         {
             for(BluetoothDevice device : pairedDevices)
             {
-                if(device.getName().equals("4485-M8") || device.getAddress().equals("00:1A:7D:DA:71:13")) //Note, you will need to change this to match the name and address of your device
+                //(device.getName().equals("4485-M8") || device.getAddress().equals("00:1A:7D:DA:71:13"))
+                if(device.getName().equals("raspberrypi") || device.getAddress().equals("B8:27:EB:F9:A0:15")) //Note, you will need to change this to match the name and address of your device
                 {
                     setLogMessage("Found Specified Device: " + device.getAddress().toString(), false);
                     Log.e("4485-M8",device.getName());
