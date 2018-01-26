@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.io.File;
@@ -193,6 +194,16 @@ public class ConnectAndSendActivity extends AppCompatActivity {
         logText.setText(message);
     }
 
+    // Show notification
+    private void makeToast(String toastedMessage) {
+        Context context = getApplicationContext();
+        CharSequence text = toastedMessage;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
     private boolean checkFileExists(String path) {
         try {
             File dir = getFilesDir();
@@ -228,6 +239,8 @@ public class ConnectAndSendActivity extends AppCompatActivity {
             writeStream.write(content.getBytes());
             writeStream.close();
             //setMessage(readDataFile(), false);
+
+            makeToast("Updated Device!");
         } catch (Exception ex) {
         }
     }
