@@ -91,7 +91,8 @@ public class ConnectAndSendActivity extends AppCompatActivity {
                     setLogMessage("Found Specified Device: " + device.getAddress().toString(), false);
                     Log.e("4485-M8",device.getName());
                     mmDevice = device;
-                    return true;
+                    if (sendBtMsg("!")) return true;
+                    return false;
 
                 }
             }
@@ -263,12 +264,17 @@ public class ConnectAndSendActivity extends AppCompatActivity {
         else if (!connected) setLogMessage("Not connected to server!", true);
         else if (connected) {
             for (int i = 0; i < 3; i++) {
-                if (sendBtMsg(dataFileContents)) break;
+                if (sendBtMsg(dataFileContents)) {
+                    setLogMessage("Sent Successfully!", false);
+                    return;
+                }
             }
+            setLogMessage("Message Not Sent", false);
         }
     }
 
     public void connectBtn(View view) {
+        setLogMessage("Trying to Connect....", false);
         if (connected) setLogMessage("Already Connected to Device.", false);
         else {
             connected = connectToDevice();
