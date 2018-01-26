@@ -2,9 +2,17 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
+<<<<<<< HEAD
     //buildToolsVersion "26.0.2"
     //buildToolsVersion '26.0.2'
 
+=======
+<<<<<<< HEAD
+    buildToolsVersion "26.0.2"
+=======
+    //buildToolsVersion '26.0.2'
+>>>>>>> f85cc959c8cddbe4ec3cca6203c92ec96665f94c
+>>>>>>> 0f0b462b591bd031af4b3d92deec46bd210b1bf6
     defaultConfig {
         applicationId "com.tribetech4485.androidscout"
         minSdkVersion 16

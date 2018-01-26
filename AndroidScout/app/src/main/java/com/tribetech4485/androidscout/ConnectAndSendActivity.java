@@ -91,6 +91,10 @@ public class ConnectAndSendActivity extends AppCompatActivity {
                     setLogMessage("Found Specified Device: " + device.getAddress().toString(), false);
                     Log.e("4485-M8",device.getName());
                     mmDevice = device;
+<<<<<<< HEAD
+=======
+                    logText.setText("Testing Connection....");
+>>>>>>> 0f0b462b591bd031af4b3d92deec46bd210b1bf6
                     if (sendBtMsg("!")) return true;
                     return false;
 
