@@ -11,6 +11,7 @@ public:
 	~Parser();
 
 	std::string convertToCSV();
+	void checkForExec();
 private:
 
 	std::string _getMarkerValue(std::string);

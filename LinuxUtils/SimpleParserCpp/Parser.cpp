@@ -14,6 +14,38 @@ Parser::~Parser()
 {
 }
 
+void Parser::checkForExec() {
+	// make sure there are lines
+	if (_lines.empty()) return;
+
+	int execStartIndex = -1;
+	int execEndIndex = -1;
+
+	// Find the beginning and end of the exec block
+	for (int i = 0; i < _lines.size(); i++) {
+		if (_isLineMarker(_lines[i])) {
+			if (_getMarkerValue(_lines[i]) == codeId::execBegin) execStartIndex = i;
+			else if (_getMarkerValue(_lines[i]) == codeId::execEnd) execEndIndex = i;
+		}
+	}
+
+	// Check the indexes
+	if (execStartIndex >= execEndIndex) return;
+	if (execStartIndex < 0 || execEndIndex < 0) return;
+
+	// Get the contents of the exec block
+	std::vector<std::string> commands;
+	for (int i = execStartIndex; i < execEndIndex; i++) {
+		if (_getValueTitle(_lines[i]) == codeId::execCommandTitle) commands.push_back(_getValueValue(_lines[i]));
+	}
+
+	// Execute the commands if there are any
+	if (commands.size() <= 0) return;
+	for (int i = 0; i < commands.size(); i++) {
+		system(commands[i].c_str());
+	}
+}
+
 std::string Parser::convertToCSV() {
 	// Check if _lines is empty
 	if (_lines.empty()) return "";

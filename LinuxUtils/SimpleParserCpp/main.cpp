@@ -7,9 +7,9 @@
 int main(int argc, char** argv) {
 	std::string inputPath = "test.list";
 	std::string outputPath = "converted.csv";
-	bool continuous = true;
+	std::string continString = "n";
+	bool continuous = false;
 
-	// TODO: implement the parser in a useful way.
 	if (argc < 2) {
 		std::cout << "Usage: " << argv[0] << " [Input Path] [Output Path]\n";
 		return 0;
@@ -17,9 +17,13 @@ int main(int argc, char** argv) {
 
 	inputPath = argv[1];
 	outputPath = argv[2];
-	if (argc > 2) {
-		if (argv[3] == "y") continuous = true;
-		std::cout << "Running contnuously....\n";
+	if (argc > 3) {
+		continString = argv[3];
+		std::cout << "Checking if continuous....\n";
+		if (continString == "y") {
+			continuous = true;
+			std::cout << "Running contnuously....\n";
+		}
 	}
 
 	std::vector<std::string> prevLines;
@@ -31,7 +35,6 @@ int main(int argc, char** argv) {
 		if (readStream.fail()) {
 			std::cout << "Could not read file.\n";
 			if (!continuous) return 0;
-			break;
 		}
 		else {
 			while (std::getline(readStream, inputText)) {
