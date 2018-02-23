@@ -63,7 +63,7 @@
         android:paddingTop="15dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,6 +115,18 @@
                 tools:layout_editor_absoluteX="-47dp"
                 tools:layout_editor_absoluteY="56dp" />
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:text="Auto" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -126,7 +138,6 @@
                     android:layout_height="43dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginTop="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:checkMark="?android:attr/listChoiceIndicatorMultiple"
@@ -139,12 +150,10 @@
 
                 <CheckedTextView
                     android:id="@+id/autoSwitchCheckedTextView"
-
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginTop="30dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:checkMark="?android:attr/listChoiceIndicatorMultiple"
