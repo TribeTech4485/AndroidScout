@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample/app/src/androidTest/androidTest.iml" filepath="$PROJECT_DIR$/BluetoothExample/app/src/androidTest/androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothJoystick/app/src/androidTest/androidTest1.iml" filepath="$PROJECT_DIR$/BluetoothJoystick/app/src/androidTest/androidTest1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample2/app/src/androidTest/androidTest2.iml" filepath="$PROJECT_DIR$/BluetoothExample2/app/src/androidTest/androidTest2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SlidersBluetooth/app/src/androidTest/androidTest3.iml" filepath="$PROJECT_DIR$/SlidersBluetooth/app/src/androidTest/androidTest3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidScout/app/src/androidTest/androidTest4.iml" filepath="$PROJECT_DIR$/AndroidScout/app/src/androidTest/androidTest4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothJoystick/app/src/main/main.iml" filepath="$PROJECT_DIR$/BluetoothJoystick/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample2/app/src/main/main1.iml" filepath="$PROJECT_DIR$/BluetoothExample2/app/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample/app/src/main/main2.iml" filepath="$PROJECT_DIR$/BluetoothExample/app/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidScout/app/src/main/main3.iml" filepath="$PROJECT_DIR$/AndroidScout/app/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SlidersBluetooth/app/src/main/main4.iml" filepath="$PROJECT_DIR$/SlidersBluetooth/app/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidScout/app/src/test/test.iml" filepath="$PROJECT_DIR$/AndroidScout/app/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample2/app/src/test/test1.iml" filepath="$PROJECT_DIR$/BluetoothExample2/app/src/test/test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SlidersBluetooth/app/src/test/test2.iml" filepath="$PROJECT_DIR$/SlidersBluetooth/app/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothExample/app/src/test/test3.iml" filepath="$PROJECT_DIR$/BluetoothExample/app/src/test/test3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BluetoothJoystick/app/src/test/test4.iml" filepath="$PROJECT_DIR$/BluetoothJoystick/app/src/test/test4.iml" />
+    </modules>
+  </component>
+</project>

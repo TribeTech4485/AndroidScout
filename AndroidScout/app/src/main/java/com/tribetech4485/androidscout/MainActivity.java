@@ -66,8 +66,6 @@ public class MainActivity extends AppCompatActivity implements
 
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
-        teamScaleRatingText = (EditText) findViewById(R.id.teamScaleRatingText);
-        teamSwitchRatingText = (EditText) findViewById(R.id.teamSwitchRatingText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
 
         messageText = (TextView) findViewById(R.id.messageText);
