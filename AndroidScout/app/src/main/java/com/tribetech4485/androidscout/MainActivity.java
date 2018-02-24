@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity implements
         teamNameText = (EditText) findViewById(R.id.teamNameText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
 
-        messageText = (TextView) findViewById(R.id.messageText);
-
         appendDataButton = (Button) findViewById(R.id.appendToDataButton);
         uploadConnectButton = (Button) findViewById(R.id.uploadConnectButton);
         dataManageButton = (Button) findViewById(R.id.dataManagerButton);
