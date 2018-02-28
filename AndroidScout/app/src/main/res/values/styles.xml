@@ -16,6 +16,11 @@
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#FF6E00</item>
 
+
+    </style>
+
+    <style name="mySpinnerItemStyle" parent="Base.Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/my_spinner_text_color</item>
     </style>
 
 </resources>

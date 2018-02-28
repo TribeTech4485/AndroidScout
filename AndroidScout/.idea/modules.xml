@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidScout.iml" filepath="$PROJECT_DIR$/AndroidScout.iml" />
-      <module fileurl="file://C:\Users\joshu\AndroidStudioProjects\AndroidScout\AndroidScout\AndroidScout.iml" filepath="C:\Users\joshu\AndroidStudioProjects\AndroidScout\AndroidScout\AndroidScout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\joshu\AndroidStudioProjects\AndroidScout\AndroidScout\app\app.iml" filepath="C:\Users\joshu\AndroidStudioProjects\AndroidScout\AndroidScout\app\app.iml" />
     </modules>
   </component>
 </project>

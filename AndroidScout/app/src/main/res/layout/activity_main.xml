@@ -186,7 +186,7 @@
 
                 <TextView
                     android:id="@+id/switchNumberOfCratesTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -217,7 +217,7 @@
 
                 <TextView
                     android:id="@+id/scaleNumberOfCratesTextView"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -228,6 +228,68 @@
 
                 <com.travijuu.numberpicker.library.NumberPicker
                     android:id="@+id/scaleNumberOfCratesNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_gravity="end"
+                    numberpicker:custom_layout="@layout/number_picker_layout"
+                    numberpicker:focusable="false"
+                    numberpicker:max="15"
+                    numberpicker:min="0"
+                    numberpicker:unit="1"
+                    numberpicker:value="0" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/numberOfPowerUpCratesTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="# of Crates Exchanged (for Powerups)"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+
+                <com.travijuu.numberpicker.library.NumberPicker
+                    android:id="@+id/numberOfPowerUpCratesNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_gravity="end"
+                    numberpicker:custom_layout="@layout/number_picker_layout"
+                    numberpicker:focusable="false"
+                    numberpicker:max="15"
+                    numberpicker:min="0"
+                    numberpicker:unit="1"
+                    numberpicker:value="0" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/numberOfCratesCollectedTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="# of Crates Collected"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+
+                <com.travijuu.numberpicker.library.NumberPicker
+                    android:id="@+id/numberOfCratesCollectedNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_gravity="end"
@@ -309,6 +371,67 @@
                     android:textColor="#AAAAAA" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/otherTextView"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Other"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <CheckedTextView
+                android:id="@+id/climbedCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Climbed?"
+                android:textColor="#AAAAAA" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="15sp"
+                android:text="Type of Drive Base"/>
+
+            <Spinner
+                android:id="@+id/driveTypeSpinner"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:paddingLeft="15dp"
+                android:layout_gravity="end"
+                android:background="@drawable/back"
+                android:theme="@style/mySpinnerItemStyle"
+                android:entries="@array/drive_types" />
+
+        </LinearLayout>
 
             <EditText
                 android:id="@+id/teamOtherInfoText"

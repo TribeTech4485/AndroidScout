@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidScout</string>
+
+    <string-array name="drive_types">
+        <item>Shifting</item>
+        <item>Speed</item>
+        <item>Push</item>
+
+    </string-array>
 </resources>
