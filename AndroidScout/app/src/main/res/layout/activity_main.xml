@@ -357,7 +357,7 @@
                 <CheckedTextView
                     android:id="@+id/powerUpLevitateCheckedTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="43dp"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
@@ -414,6 +414,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
+                android:layout_weight="1"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:textSize="15sp"
@@ -421,17 +422,36 @@
 
             <Spinner
                 android:id="@+id/driveTypeSpinner"
-                android:layout_width="200dp"
+                android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:paddingLeft="15dp"
+                android:layout_weight="1"
                 android:layout_gravity="end"
+                android:focusable="false"
                 android:background="@drawable/back"
                 android:theme="@style/mySpinnerItemStyle"
                 android:entries="@array/drive_types" />
 
         </LinearLayout>
+
+            <CheckedTextView
+                android:id="@+id/connectionLossCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="70dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Connection Loss?"
+                android:textColor="#AAAAAA" />
 
             <EditText
                 android:id="@+id/teamOtherInfoText"
@@ -440,7 +460,6 @@
                 android:layout_height="200dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="40dp"
                 android:background="@drawable/back"
                 android:ems="10"
                 android:hint="Other Information (Optional)"

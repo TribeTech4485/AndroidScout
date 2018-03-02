@@ -11,9 +11,12 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.travijuu.numberpicker.library.NumberPicker;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -31,6 +34,21 @@ public class MainActivity extends AppCompatActivity implements
     private Button appendDataButton;
     private Button uploadConnectButton;
     private Button dataManageButton;
+
+    private CheckedTextView autoRunCheckedTextView;
+    private CheckedTextView autoSwitchCheckedTextView;
+    private CheckedTextView powerUpBoostCheckedTextView;
+    private CheckedTextView powerUpForceCheckedTextView;
+    private CheckedTextView powerUpLevitateCheckedTextView;
+    private CheckedTextView climbedCheckedTextView;
+    private CheckedTextView connectionLossCheckedTextView;
+
+    private NumberPicker switchNumberOfCratesNumberPicker;
+    private NumberPicker scaleNumberOfCratesNumberPicker;
+    private NumberPicker numberOfPowerUpCratesNumberPicker;
+    private NumberPicker numberOfCratesCollectedNumberPicker;
+
+    private Spinner driveTypeSpinner;
 
     private TextView messageText;
 
@@ -72,8 +90,22 @@ public class MainActivity extends AppCompatActivity implements
         uploadConnectButton = (Button) findViewById(R.id.uploadConnectButton);
         dataManageButton = (Button) findViewById(R.id.dataManagerButton);
 
+        autoRunCheckedTextView = (CheckedTextView) findViewById(R.id.autoRunCheckedTextView);
+        autoSwitchCheckedTextView = (CheckedTextView) findViewById(R.id.autoSwitchCheckedTextView);
+        powerUpBoostCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpBoostCheckedTextView);
+        powerUpForceCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpForceCheckedTextView);
+        powerUpLevitateCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpLevitateCheckedTextView);
+        climbedCheckedTextView = (CheckedTextView) findViewById(R.id.climbedCheckedTextView);
+        connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
+
+        driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
+
         m = getPackageManager();
 
+        setClickListeners();
+    }
+
+    private void setClickListeners(){
         uploadConnectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,8 +127,54 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        autoRunCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autoRunCheckedTextView.setChecked(!autoRunCheckedTextView.isChecked());
+            }
+        });
 
+        autoSwitchCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                autoSwitchCheckedTextView.setChecked(!autoSwitchCheckedTextView.isChecked());
+            }
+        });
 
+        powerUpBoostCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                powerUpBoostCheckedTextView.setChecked(!powerUpBoostCheckedTextView.isChecked());
+            }
+        });
+
+        powerUpForceCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                powerUpForceCheckedTextView.setChecked(!powerUpForceCheckedTextView.isChecked());
+            }
+        });
+
+        powerUpLevitateCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                powerUpLevitateCheckedTextView.setChecked(!powerUpLevitateCheckedTextView.isChecked());
+            }
+        });
+
+        climbedCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                climbedCheckedTextView.setChecked(!climbedCheckedTextView.isChecked());
+            }
+        });
+        connectionLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                connectionLossCheckedTextView.setChecked(!connectionLossCheckedTextView.isChecked());
+            }
+        });
+        
     }
 
     private void saveTeamData() {
