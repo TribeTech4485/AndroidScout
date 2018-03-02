@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements
 
     private EditText teamNumberText;
     private EditText teamNameText;
-    private EditText teamScaleRatingText;
-    private EditText teamSwitchRatingText;
     private EditText teamOtherInfoText;
 
     private PackageManager m;
@@ -89,10 +87,10 @@ public class MainActivity extends AppCompatActivity implements
         driveBaseTypes.add("Push");
         driveBaseTypes.add("Speed");
         driveBaseTypes.add("Shifting");
-
-
-
-
+        driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
+        ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
+        driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
 
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
@@ -110,10 +108,13 @@ public class MainActivity extends AppCompatActivity implements
         climbedCheckedTextView = (CheckedTextView) findViewById(R.id.climbedCheckedTextView);
         connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
 
-        driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
-        ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
-        driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
+        switchNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.switchNumberOfCratesNumberPicker);
+        scaleNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.scaleNumberOfCratesNumberPicker);
+        numberOfPowerUpCratesNumberPicker = (NumberPicker) findViewById(R.id.numberOfPowerUpCratesNumberPicker);
+        numberOfCratesCollectedNumberPicker = (NumberPicker) findViewById(R.id.numberOfCratesCollectedNumberPicker);
+        zeroNumberPickers();
+
+        messageText = (TextView) findViewById(R.id.messageTextView);
 
         m = getPackageManager();
 
@@ -192,14 +193,30 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    private void zeroNumberPickers(){
+        switchNumberOfCratesNumberPicker.setValue(0);
+        scaleNumberOfCratesNumberPicker.setValue(0);
+        numberOfPowerUpCratesNumberPicker.setValue(0);
+        numberOfCratesCollectedNumberPicker.setValue(0);
+    }
+
     private void saveTeamData() {
         String output = "";
 
         output += "!start!\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
-        output += "Team Scale Rating:" + teamScaleRatingText.getText().toString() + "\n";
-        output += "Team Switch Rating:" + teamSwitchRatingText.getText().toString() + "\n";
+        output += "Auto Run:" + autoRunCheckedTextView.isChecked() + "\n";
+        output += "Auto Switch:" + autoSwitchCheckedTextView.isChecked() + "\n";
+        output += "Switch Crates:" + switchNumberOfCratesNumberPicker.getValue() + "\n";
+        output += "Scale Crates:" + scaleNumberOfCratesNumberPicker.getValue() + "\n";
+        output += "Crates Exchanged:" + numberOfPowerUpCratesNumberPicker.getValue() + "\n";
+        output += "Crates Collected:" + numberOfCratesCollectedNumberPicker.getValue() + "\n";
+        output += "Used Boost:" + powerUpBoostCheckedTextView.isChecked() + "\n";
+        output += "Used Force:" + powerUpForceCheckedTextView.isChecked() + "\n";
+        output += "Used Levitate:" + powerUpLevitateCheckedTextView.isChecked() + "\n";
+        output += "Climbed:" + climbedCheckedTextView.isChecked() + "\n";
+        output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
         output += "!end!\n";
 
@@ -219,8 +236,15 @@ public class MainActivity extends AppCompatActivity implements
     private void clearInputs() {
         teamNumberText.setText("");
         teamNameText.setText("");
-        teamScaleRatingText.setText("");
-        teamSwitchRatingText.setText("");
+        autoRunCheckedTextView.setChecked(false);
+        autoSwitchCheckedTextView.setChecked(false);
+        zeroNumberPickers();
+        powerUpBoostCheckedTextView.setChecked(false);
+        powerUpForceCheckedTextView.setChecked(false);
+        powerUpLevitateCheckedTextView.setChecked(false);
+        climbedCheckedTextView.setChecked(false);
+        connectionLossCheckedTextView.setChecked(false);
+        driveTypeSpinner.setSelection(0);
         teamOtherInfoText.setText("");
     }
 
