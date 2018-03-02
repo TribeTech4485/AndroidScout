@@ -429,8 +429,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
-                    android:focusable="false"
-                    android:theme="@style/mySpinnerItemStyle" />
+                    android:focusable="false" />
 
             </LinearLayout>
 

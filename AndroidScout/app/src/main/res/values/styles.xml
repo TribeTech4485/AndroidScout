@@ -18,9 +18,4 @@
 
 
     </style>
-
-    <style name="mySpinnerItemStyle" parent="Base.Widget.AppCompat.Spinner">
-        <item name="android:textColor">@color/my_spinner_text_color</item>
-    </style>
-
 </resources>
