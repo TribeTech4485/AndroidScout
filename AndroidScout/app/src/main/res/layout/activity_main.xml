@@ -430,8 +430,7 @@
                 android:layout_gravity="end"
                 android:focusable="false"
                 android:background="@drawable/back"
-                android:theme="@style/mySpinnerItemStyle"
-                android:entries="@array/drive_types" />
+                android:theme="@style/mySpinnerItemStyle" />
 
         </LinearLayout>
 

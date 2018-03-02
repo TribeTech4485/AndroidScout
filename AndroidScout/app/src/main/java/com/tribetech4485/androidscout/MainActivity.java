@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
@@ -20,6 +21,8 @@ import com.travijuu.numberpicker.library.NumberPicker;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements
         GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
@@ -79,7 +82,16 @@ public class MainActivity extends AppCompatActivity implements
         mDetector = new GestureDetector(this,this);
         // Set the gesture detector as the double tap
         // listener.
-        mDetector.setOnDoubleTapListener(this);
+        //mDetector.setOnDoubleTapListener(this);
+
+        List<String> driveBaseTypes = new ArrayList<String>();
+        driveBaseTypes.add("Drive Base");
+        driveBaseTypes.add("Push");
+        driveBaseTypes.add("Speed");
+        driveBaseTypes.add("Shifting");
+
+
+
 
 
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
@@ -99,6 +111,9 @@ public class MainActivity extends AppCompatActivity implements
         connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
 
         driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
+        ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
+        driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
 
         m = getPackageManager();
 
@@ -174,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements
                 connectionLossCheckedTextView.setChecked(!connectionLossCheckedTextView.isChecked());
             }
         });
-        
+
     }
 
     private void saveTeamData() {
