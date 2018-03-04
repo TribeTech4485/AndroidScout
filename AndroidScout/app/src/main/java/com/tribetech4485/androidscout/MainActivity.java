@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -96,6 +97,11 @@ public class MainActivity extends AppCompatActivity implements
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
+
+        teamOtherInfoText.setInputType(InputType.TYPE_CLASS_TEXT |
+                InputType.TYPE_TEXT_FLAG_MULTI_LINE |
+                InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+
 
         appendDataButton = (Button) findViewById(R.id.appendToDataButton);
         uploadConnectButton = (Button) findViewById(R.id.uploadConnectButton);

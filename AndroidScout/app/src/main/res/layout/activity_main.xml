@@ -74,6 +74,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_height="0px"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
             <EditText
                 android:id="@+id/teamNumberText"
                 android:layout_width="match_parent"
@@ -88,6 +94,7 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="#AAAAAA"
                 android:visibility="visible"
+
                 app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -109,6 +116,7 @@
                 android:textColor="@android:color/white"
                 android:textColorHint="#AAAAAA"
                 android:visibility="visible"
+
                 app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -182,6 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -190,7 +199,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# of Crates (Switch)"
+                    android:text="Crates (Switch)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -213,6 +222,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -221,7 +231,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# of Crates (Scale)"
+                    android:text="Crates (Scale)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -244,6 +254,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -252,7 +263,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# of Crates Exchanged (for Powerups)"
+                    android:text="Crates (Exchange)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -275,6 +286,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -283,7 +295,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="# of Crates Collected"
+                    android:text="Crates (Collected)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -461,15 +473,16 @@
                 android:background="@drawable/back"
                 android:ems="10"
                 android:hint="Other Information (Optional)"
-                android:inputType="textImeMultiLine"
-                android:textAlignment="center"
+                android:inputType="textAutoComplete|textImeMultiLine"
                 android:textColor="@android:color/white"
                 android:textColorHint="#AAAAAA"
                 android:visibility="visible"
-                app:layout_constraintHorizontal_bias="0.503"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
                 tools:layout_editor_absoluteX="-47dp"
+                android:gravity="top|center_horizontal"
+                android:lines="8"
+                android:minLines="6"
+                android:maxLines="10"
+                android:scrollbars="vertical"
                 tools:layout_editor_absoluteY="56dp" />
 
             <Button
