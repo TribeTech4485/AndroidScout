@@ -1,3 +1,7 @@
+/*
+    TODO: Update for 2019 game once released
+ */
+
 package com.tribetech4485.androidscout;
 
 import android.content.Context;
@@ -28,13 +32,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements
         GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
 
+    // Gesture Variables
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetector mDetector;
 
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 600;
+    //
 
+    // Interface Objects
     private Button appendDataButton;
     private Button uploadConnectButton;
     private Button dataManageButton;
@@ -59,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements
     private EditText teamNumberText;
     private EditText teamNameText;
     private EditText teamOtherInfoText;
+    //
 
     private PackageManager m;
 
@@ -83,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements
         // listener.
         //mDetector.setOnDoubleTapListener(this);
 
+
+        // Setup the interface objects
+        // Setup the DriveBase selection drop-down list
         List<String> driveBaseTypes = new ArrayList<String>();
         driveBaseTypes.add("Drive Base");
         driveBaseTypes.add("Push");
@@ -93,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements
         driveBaseTypesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
         //driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
+        ////
 
+        // Setup the text boxes
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
@@ -101,25 +114,31 @@ public class MainActivity extends AppCompatActivity implements
         teamOtherInfoText.setInputType(InputType.TYPE_CLASS_TEXT |
                 InputType.TYPE_TEXT_FLAG_MULTI_LINE |
                 InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-
-
+        //
+        // Setup the Buttons at the bottom
         appendDataButton = (Button) findViewById(R.id.appendToDataButton);
         uploadConnectButton = (Button) findViewById(R.id.uploadConnectButton);
         dataManageButton = (Button) findViewById(R.id.dataManagerButton);
+        //
 
+        // Auto and Connection loss objects
         autoRunCheckedTextView = (CheckedTextView) findViewById(R.id.autoRunCheckedTextView);
+        connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
+        //
+
+        // Game specific objects - Updated for every game (currently setup for FIRST Power-up)
         autoSwitchCheckedTextView = (CheckedTextView) findViewById(R.id.autoSwitchCheckedTextView);
         powerUpBoostCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpBoostCheckedTextView);
         powerUpForceCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpForceCheckedTextView);
         powerUpLevitateCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpLevitateCheckedTextView);
         climbedCheckedTextView = (CheckedTextView) findViewById(R.id.climbedCheckedTextView);
-        connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
 
         switchNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.switchNumberOfCratesNumberPicker);
         scaleNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.scaleNumberOfCratesNumberPicker);
         numberOfPowerUpCratesNumberPicker = (NumberPicker) findViewById(R.id.numberOfPowerUpCratesNumberPicker);
         numberOfCratesCollectedNumberPicker = (NumberPicker) findViewById(R.id.numberOfCratesCollectedNumberPicker);
         zeroNumberPickers();
+        //
 
         messageText = (TextView) findViewById(R.id.messageTextView);
 

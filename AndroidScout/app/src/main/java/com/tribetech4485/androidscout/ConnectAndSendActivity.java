@@ -263,8 +263,8 @@ public class ConnectAndSendActivity extends AppCompatActivity {
     // Send data with button press
     public void sendDataBtn(View view) {
         String dataFileContents = readDataFile(teamDataPath);
-        if (dataFileContents == "") setLogMessage("File Contents Empty! Collect some team data, then send it.", false);
-        else if (!connected) setLogMessage("Not connected to server!", true);
+        if (!connected) setLogMessage("Not connected to server!", true);
+        else if (dataFileContents == "") setLogMessage("File Contents Empty! Collect some team data, then send it.", false);
         else if (connected) {
             for (int i = 0; i < 3; i++) {
                 if (sendBtMsg(dataFileContents)) {
