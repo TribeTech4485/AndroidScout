@@ -130,7 +130,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Auto"
+                android:text="Sandstorm"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
@@ -153,7 +153,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:paddingLeft="15dp"
-                    android:text="Auto Run"
+                    android:text="Robot Ran?"
                     android:textColor="#AAAAAA" />
 
                 <CheckedTextView
@@ -169,7 +169,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:paddingLeft="15dp"
-                    android:text="Auto Switch"
+                    android:text="Auto?"
                     android:textColor="#AAAAAA" />
 
             </LinearLayout>
@@ -199,7 +199,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Crates (Switch)"
+                    android:text="Hatches"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -231,7 +231,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Crates (Scale)"
+                    android:text="Cargo (Left and Right Rocket)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -263,7 +263,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Crates (Exchange)"
+                    android:text="Cargo (Center Cargo Ship)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -295,7 +295,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Crates (Collected)"
+                    android:text="Climb Level (DROP DOWN BOX)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
