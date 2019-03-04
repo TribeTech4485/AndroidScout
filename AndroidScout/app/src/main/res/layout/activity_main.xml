@@ -61,8 +61,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginTop="50dp"
+        android:layout_marginRight="8dp"
         android:paddingTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -106,8 +106,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/back"
                 android:ems="10"
                 android:hint="Enter Team Name"
@@ -124,7 +124,7 @@
                 tools:layout_editor_absoluteY="56dp" />
 
             <TextView
-                android:id="@+id/autoTextView"
+                android:id="@+id/sandstormTextView"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
@@ -141,7 +141,7 @@
                 android:orientation="horizontal">
 
                 <CheckedTextView
-                    android:id="@+id/autoRunCheckedTextView"
+                    android:id="@+id/sandstormRunCheckedTextView"
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:layout_marginLeft="8dp"
@@ -153,11 +153,11 @@
                     android:ems="10"
                     android:gravity="center"
                     android:paddingLeft="15dp"
-                    android:text="Robot Ran?"
+                    android:text="Robot ran?"
                     android:textColor="#AAAAAA" />
 
                 <CheckedTextView
-                    android:id="@+id/autoSwitchCheckedTextView"
+                    android:id="@+id/sandstormAutoCheckedTextView"
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:layout_marginLeft="8dp"
@@ -170,6 +170,45 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Auto?"
+                    android:textColor="#AAAAAA" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckedTextView
+                    android:id="@+id/sandstormManualCheckedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:checked="false"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:text="Manual?"
+                    android:textColor="#AAAAAA" />
+
+                <CheckedTextView
+                    android:id="@+id/sandstormCameraCheckedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:checked="false"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:text="Camera?"
                     android:textColor="#AAAAAA" />
 
             </LinearLayout>
@@ -189,12 +228,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/switchNumberOfCratesTextView"
+                    android:id="@+id/spaceHatchesTextView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -205,14 +244,14 @@
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
-                    android:id="@+id/switchNumberOfCratesNumberPicker"
+                    android:id="@+id/spaceHatchesNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_gravity="end"
                     numberpicker:custom_layout="@layout/number_picker_layout"
                     numberpicker:focusable="false"
-                    numberpicker:max="15"
-                    numberpicker:min="-1"
+                    numberpicker:max="20"
+                    numberpicker:min="0"
                     numberpicker:unit="11"
                     numberpicker:value="0" />
 
@@ -221,12 +260,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/scaleNumberOfCratesTextView"
+                    android:id="@+id/rocketCargoTextView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -237,13 +276,13 @@
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
-                    android:id="@+id/scaleNumberOfCratesNumberPicker"
+                    android:id="@+id/rocketCargoNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_gravity="end"
                     numberpicker:custom_layout="@layout/number_picker_layout"
                     numberpicker:focusable="false"
-                    numberpicker:max="15"
+                    numberpicker:max="20"
                     numberpicker:min="0"
                     numberpicker:unit="1"
                     numberpicker:value="0" />
@@ -253,12 +292,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/numberOfPowerUpCratesTextView"
+                    android:id="@+id/shipCargoTextView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -269,13 +308,13 @@
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
-                    android:id="@+id/numberOfPowerUpCratesNumberPicker"
+                    android:id="@+id/shipCargoNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_gravity="end"
                     numberpicker:custom_layout="@layout/number_picker_layout"
                     numberpicker:focusable="false"
-                    numberpicker:max="15"
+                    numberpicker:max="20"
                     numberpicker:min="0"
                     numberpicker:unit="1"
                     numberpicker:value="0" />
@@ -285,8 +324,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -314,75 +353,13 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/powerUpTextView"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Power Ups"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <CheckedTextView
-                    android:id="@+id/powerUpBoostCheckedTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="43dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/back"
-                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                    android:checked="false"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:text="Boost"
-                    android:textColor="#AAAAAA" />
-
-                <CheckedTextView
-                    android:id="@+id/powerUpForceCheckedTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="43dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/back"
-                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                    android:checked="false"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:text="Force"
-                    android:textColor="#AAAAAA" />
-
-                <CheckedTextView
-                    android:id="@+id/powerUpLevitateCheckedTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/back"
-                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                    android:checked="false"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:text="Levitate"
-                    android:textColor="#AAAAAA" />
-
-            </LinearLayout>
+            <!--<LinearLayout-->
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"/>
 
             <TextView
                 android:id="@+id/otherTextView"
@@ -396,13 +373,12 @@
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
-            <CheckedTextView
-                android:id="@+id/climbedCheckedTextView"
+            <!--<CheckedTextView-->
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/back"
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
@@ -412,6 +388,7 @@
                 android:paddingLeft="15dp"
                 android:text="Climbed?"
                 android:textColor="#AAAAAA" />
+            android:id="@+id/climbedCheckedTextView"
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -445,14 +422,15 @@
 
             </LinearLayout>
 
+
             <CheckedTextView
                 android:id="@+id/connectionLossCheckedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginBottom="70dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="50dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/back"
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
@@ -461,6 +439,30 @@
                 android:gravity="center"
                 android:paddingLeft="15dp"
                 android:text="Connection Loss?"
+                android:textColor="#AAAAAA" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+
+            <CheckedTextView
+                android:id="@+id/powerLossCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="70dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Power loss?"
                 android:textColor="#AAAAAA" />
 
             <EditText
@@ -472,17 +474,17 @@
                 android:layout_marginRight="8dp"
                 android:background="@drawable/back"
                 android:ems="10"
+                android:gravity="top|center_horizontal"
                 android:hint="Other Information (Optional)"
                 android:inputType="textAutoComplete|textImeMultiLine"
+                android:lines="8"
+                android:maxLines="10"
+                android:minLines="6"
+                android:scrollbars="vertical"
                 android:textColor="@android:color/white"
                 android:textColorHint="#AAAAAA"
                 android:visibility="visible"
                 tools:layout_editor_absoluteX="-47dp"
-                android:gravity="top|center_horizontal"
-                android:lines="8"
-                android:minLines="6"
-                android:maxLines="10"
-                android:scrollbars="vertical"
                 tools:layout_editor_absoluteY="56dp" />
 
             <Button
@@ -491,8 +493,8 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
 
                 android:background="@drawable/btn_back"
@@ -508,8 +510,8 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
 
                 android:background="@drawable/btn_back"
@@ -525,10 +527,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginBottom="25dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="25dp"
                 android:layout_weight="1"
 
                 android:background="@drawable/btn_back"

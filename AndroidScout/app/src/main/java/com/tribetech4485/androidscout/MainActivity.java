@@ -46,18 +46,16 @@ public class MainActivity extends AppCompatActivity implements
     private Button uploadConnectButton;
     private Button dataManageButton;
 
-    private CheckedTextView autoRunCheckedTextView;
-    private CheckedTextView autoSwitchCheckedTextView;
-    private CheckedTextView powerUpBoostCheckedTextView;
-    private CheckedTextView powerUpForceCheckedTextView;
-    private CheckedTextView powerUpLevitateCheckedTextView;
-    private CheckedTextView climbedCheckedTextView;
+    private CheckedTextView sandstormRunCheckedTextView;
+    private CheckedTextView sandstormAutoCheckedTextView;
+    private CheckedTextView sandstormManualCheckedTextView;
+    private CheckedTextView sandstormCameraCheckedTextView;
     private CheckedTextView connectionLossCheckedTextView;
+    private CheckedTextView powerLossCheckedTextView;
 
-    private NumberPicker switchNumberOfCratesNumberPicker;
-    private NumberPicker scaleNumberOfCratesNumberPicker;
-    private NumberPicker numberOfPowerUpCratesNumberPicker;
-    private NumberPicker numberOfCratesCollectedNumberPicker;
+    private NumberPicker spaceHatchesNumberPicker;
+    private NumberPicker rocketCargoNumberPicker;
+    private NumberPicker shipCargoNumberPicker;
 
     private Spinner driveTypeSpinner;
 
@@ -122,22 +120,19 @@ public class MainActivity extends AppCompatActivity implements
         //
 
         // Auto and Connection loss objects
-        autoRunCheckedTextView = (CheckedTextView) findViewById(R.id.autoRunCheckedTextView);
+        sandstormRunCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormRunCheckedTextView);
         connectionLossCheckedTextView = (CheckedTextView) findViewById(R.id.connectionLossCheckedTextView);
+        powerLossCheckedTextView = (CheckedTextView) findViewById(R.id.powerLossCheckedTextView);
         //
 
         // Game specific objects - Updated for every game (currently setup for FIRST Power-up)
-        autoSwitchCheckedTextView = (CheckedTextView) findViewById(R.id.autoSwitchCheckedTextView);
-        powerUpBoostCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpBoostCheckedTextView);
-        powerUpForceCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpForceCheckedTextView);
-        powerUpLevitateCheckedTextView = (CheckedTextView) findViewById(R.id.powerUpLevitateCheckedTextView);
-        climbedCheckedTextView = (CheckedTextView) findViewById(R.id.climbedCheckedTextView);
+        sandstormAutoCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormAutoCheckedTextView);
+        sandstormManualCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormManualCheckedTextView);
+        sandstormCameraCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormCameraCheckedTextView);
 
-        switchNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.switchNumberOfCratesNumberPicker);
-        scaleNumberOfCratesNumberPicker = (NumberPicker) findViewById(R.id.scaleNumberOfCratesNumberPicker);
-        numberOfPowerUpCratesNumberPicker = (NumberPicker) findViewById(R.id.numberOfPowerUpCratesNumberPicker);
-        numberOfCratesCollectedNumberPicker = (NumberPicker) findViewById(R.id.numberOfCratesCollectedNumberPicker);
-        zeroNumberPickers();
+        spaceHatchesNumberPicker = (NumberPicker) findViewById(R.id.spaceHatchesNumberPicker);
+        rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.rocketCargoNumberPicker);
+        shipCargoNumberPicker = (NumberPicker) findViewById(R.id.shipCargoNumberPicker);
         //
 
         messageText = (TextView) findViewById(R.id.messageTextView);
@@ -169,45 +164,38 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
-        autoRunCheckedTextView.setOnClickListener(new View.OnClickListener() {
+        sandstormRunCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                autoRunCheckedTextView.setChecked(!autoRunCheckedTextView.isChecked());
+                sandstormRunCheckedTextView.setChecked(!sandstormRunCheckedTextView.isChecked());
             }
         });
 
-        autoSwitchCheckedTextView.setOnClickListener(new View.OnClickListener() {
+        sandstormAutoCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                autoSwitchCheckedTextView.setChecked(!autoSwitchCheckedTextView.isChecked());
+                sandstormAutoCheckedTextView.setChecked(!sandstormAutoCheckedTextView.isChecked());
             }
         });
 
-        powerUpBoostCheckedTextView.setOnClickListener(new View.OnClickListener() {
+        sandstormManualCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                powerUpBoostCheckedTextView.setChecked(!powerUpBoostCheckedTextView.isChecked());
+                sandstormManualCheckedTextView.setChecked(!sandstormManualCheckedTextView.isChecked());
             }
         });
 
-        powerUpForceCheckedTextView.setOnClickListener(new View.OnClickListener() {
+        sandstormCameraCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                powerUpForceCheckedTextView.setChecked(!powerUpForceCheckedTextView.isChecked());
+                sandstormCameraCheckedTextView.setChecked(!sandstormCameraCheckedTextView.isChecked());
             }
         });
 
-        powerUpLevitateCheckedTextView.setOnClickListener(new View.OnClickListener() {
+        powerLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                powerUpLevitateCheckedTextView.setChecked(!powerUpLevitateCheckedTextView.isChecked());
-            }
-        });
-
-        climbedCheckedTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                climbedCheckedTextView.setChecked(!climbedCheckedTextView.isChecked());
+                powerLossCheckedTextView.setChecked(!powerLossCheckedTextView.isChecked());
             }
         });
         connectionLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
@@ -220,10 +208,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void zeroNumberPickers(){
-        switchNumberOfCratesNumberPicker.setValue(0);
-        scaleNumberOfCratesNumberPicker.setValue(0);
-        numberOfPowerUpCratesNumberPicker.setValue(0);
-        numberOfCratesCollectedNumberPicker.setValue(0);
+        spaceHatchesNumberPicker.setValue(0);
+        rocketCargoNumberPicker.setValue(0);
+        shipCargoNumberPicker.setValue(0);
     }
 
     private void saveTeamData() {
@@ -232,16 +219,13 @@ public class MainActivity extends AppCompatActivity implements
         output += "!start!\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
-        output += "Auto Run:" + autoRunCheckedTextView.isChecked() + "\n";
-        output += "Auto Switch:" + autoSwitchCheckedTextView.isChecked() + "\n";
-        output += "Switch Crates:" + switchNumberOfCratesNumberPicker.getValue() + "\n";
-        output += "Scale Crates:" + scaleNumberOfCratesNumberPicker.getValue() + "\n";
-        output += "Crates Exchanged:" + numberOfPowerUpCratesNumberPicker.getValue() + "\n";
-        output += "Crates Collected:" + numberOfCratesCollectedNumberPicker.getValue() + "\n";
-        output += "Used Boost:" + powerUpBoostCheckedTextView.isChecked() + "\n";
-        output += "Used Force:" + powerUpForceCheckedTextView.isChecked() + "\n";
-        output += "Used Levitate:" + powerUpLevitateCheckedTextView.isChecked() + "\n";
-        output += "Climbed:" + climbedCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Run:" + sandstormRunCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Camera:" + sandstormCameraCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Manual:" + sandstormManualCheckedTextView.isChecked() + "\n";
+        output += "Hatches:" + spaceHatchesNumberPicker.getValue() + "\n";
+        output += "Rocket Cargo:" + rocketCargoNumberPicker.getValue() + "\n";
+        output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
         output += "!end!\n";
@@ -262,13 +246,12 @@ public class MainActivity extends AppCompatActivity implements
     private void clearInputs() {
         teamNumberText.setText("");
         teamNameText.setText("");
-        autoRunCheckedTextView.setChecked(false);
-        autoSwitchCheckedTextView.setChecked(false);
+        sandstormRunCheckedTextView.setChecked(false);
+        sandstormAutoCheckedTextView.setChecked(false);
+        sandstormManualCheckedTextView.setChecked(false);
+        sandstormCameraCheckedTextView.setChecked(false);
         zeroNumberPickers();
-        powerUpBoostCheckedTextView.setChecked(false);
-        powerUpForceCheckedTextView.setChecked(false);
-        powerUpLevitateCheckedTextView.setChecked(false);
-        climbedCheckedTextView.setChecked(false);
+        powerLossCheckedTextView.setChecked(false);
         connectionLossCheckedTextView.setChecked(false);
         driveTypeSpinner.setSelection(0);
         teamOtherInfoText.setText("");
