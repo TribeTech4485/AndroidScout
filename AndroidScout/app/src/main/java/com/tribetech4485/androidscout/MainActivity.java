@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
                 powerLossCheckedTextView.setChecked(!powerLossCheckedTextView.isChecked());
+                if (powerLossCheckedTextView.isChecked()) connectionLossCheckedTextView.setChecked(true);
             }
         });
         connectionLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
@@ -224,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements
                 connectionLossCheckedTextView.setChecked(!connectionLossCheckedTextView.isChecked());
             }
         });
-
     }
 
     private void zeroNumberPickers(){
