@@ -422,15 +422,32 @@
 
             </LinearLayout>
 
+            <CheckedTextView
+                android:id="@+id/powerLossCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Power loss?"
+                android:textColor="#AAAAAA" />
 
             <CheckedTextView
                 android:id="@+id/connectionLossCheckedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginBottom="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/back"
                 android:checkMark="?android:attr/listChoiceIndicatorMultiple"
@@ -441,29 +458,12 @@
                 android:text="Connection Loss?"
                 android:textColor="#AAAAAA" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-            </LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="horizontal">-->
 
-            <CheckedTextView
-                android:id="@+id/powerLossCheckedTextView"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="70dp"
-                android:layout_weight="1"
-                android:background="@drawable/back"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="false"
-                android:ems="10"
-                android:gravity="center"
-                android:paddingLeft="15dp"
-                android:text="Power loss?"
-                android:textColor="#AAAAAA" />
+            <!--</LinearLayout>-->
 
             <EditText
                 android:id="@+id/teamOtherInfoText"
