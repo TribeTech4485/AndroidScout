@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private TextView messageText;
 
+    private Spinner climbedHeightSpinner;
+
     private EditText teamNumberText;
     private EditText teamNameText;
     private EditText teamOtherInfoText;
@@ -93,16 +95,34 @@ public class MainActivity extends AppCompatActivity implements
         // Setup the interface objects
         // Setup the DriveBase selection drop-down list
         List<String> driveBaseTypes = new ArrayList<String>();
-        driveBaseTypes.add("Drive Base");
+        driveBaseTypes.add(" ");
         driveBaseTypes.add("Push");
         driveBaseTypes.add("Speed");
         driveBaseTypes.add("Shifting");
+        driveBaseTypes.add("Mecanum");
+        driveBaseTypes.add("Tank");
+        driveBaseTypes.add("Omni-dircetional");
         driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
         ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
         driveBaseTypesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
         //driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
         ////
+
+        // Setup the interface objects
+        // Setup the ClimbedValue selection drop-down list
+        List<String> climbedHeightValue = new ArrayList<String>();
+        climbedHeightValue.add("0");
+        climbedHeightValue.add("1");
+        climbedHeightValue.add("2");
+        climbedHeightValue.add("3");
+        climbedHeightSpinner = (Spinner) findViewById(R.id.climbedHeightSpinner);
+        ArrayAdapter<String> climbedHeightValueAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, climbedHeightValue);
+        climbedHeightValueAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //climbedHeightValueAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        climbedHeightSpinner.setAdapter(climbedHeightValueAdapter);
+        ////
+
 
         // Setup the text boxes
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
@@ -228,7 +248,9 @@ public class MainActivity extends AppCompatActivity implements
         output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
+        output += "Height Climbed:" + climbedHeightSpinner.getSelectedItem() +"\n";
         output += "!end!\n";
+
 
         FileOutputStream writeStream;
         try {
@@ -254,6 +276,7 @@ public class MainActivity extends AppCompatActivity implements
         powerLossCheckedTextView.setChecked(false);
         connectionLossCheckedTextView.setChecked(false);
         driveTypeSpinner.setSelection(0);
+        climbedHeightSpinner.setSelection(0);
         teamOtherInfoText.setText("");
     }
 

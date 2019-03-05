@@ -270,7 +270,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Cargo (Left and Right Rocket)"
+                    android:text="Cargo (Rockets)"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
@@ -334,12 +334,12 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Climb Level (DROP DOWN BOX)"
+                    android:text="Climb Level"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
 
-                <com.travijuu.numberpicker.library.NumberPicker
+                <!--<com.travijuu.numberpicker.library.NumberPicker-->
                     android:id="@+id/numberOfCratesCollectedNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
@@ -350,6 +350,18 @@
                     numberpicker:min="0"
                     numberpicker:unit="1"
                     numberpicker:value="0" />
+
+
+                <Spinner
+                    android:id="@+id/climbedHeightSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false" />
 
             </LinearLayout>
 
