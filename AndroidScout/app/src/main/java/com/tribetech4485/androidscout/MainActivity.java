@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private String teamDataPath = "TeamData.list";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,13 +96,13 @@ public class MainActivity extends AppCompatActivity implements
         // Setup the interface objects
         // Setup the DriveBase selection drop-down list
         List<String> driveBaseTypes = new ArrayList<String>();
-        driveBaseTypes.add(" ");
+        driveBaseTypes.add("No Data");
         driveBaseTypes.add("Push");
         driveBaseTypes.add("Speed");
         driveBaseTypes.add("Shifting");
         driveBaseTypes.add("Mecanum");
         driveBaseTypes.add("Tank");
-        driveBaseTypes.add("Omni-dircetional");
+        driveBaseTypes.add("Omni-directional");
         driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
         ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
         driveBaseTypesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
@@ -112,10 +113,10 @@ public class MainActivity extends AppCompatActivity implements
         // Setup the interface objects
         // Setup the ClimbedValue selection drop-down list
         List<String> climbedHeightValue = new ArrayList<String>();
-        climbedHeightValue.add("0");
-        climbedHeightValue.add("1");
-        climbedHeightValue.add("2");
-        climbedHeightValue.add("3");
+        climbedHeightValue.add("None");
+        climbedHeightValue.add("First");
+        climbedHeightValue.add("Second");
+        climbedHeightValue.add("Third");
         climbedHeightSpinner = (Spinner) findViewById(R.id.climbedHeightSpinner);
         ArrayAdapter<String> climbedHeightValueAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, climbedHeightValue);
         climbedHeightValueAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
@@ -153,11 +154,16 @@ public class MainActivity extends AppCompatActivity implements
         spaceHatchesNumberPicker = (NumberPicker) findViewById(R.id.spaceHatchesNumberPicker);
         rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.rocketCargoNumberPicker);
         shipCargoNumberPicker = (NumberPicker) findViewById(R.id.shipCargoNumberPicker);
+        spaceHatchesNumberPicker.setMax(20);
+        rocketCargoNumberPicker.setMax(12);
+        shipCargoNumberPicker.setMax(8);
         //
 
         messageText = (TextView) findViewById(R.id.messageTextView);
 
         m = getPackageManager();
+
+        zeroNumberPickers();
 
         setClickListeners();
     }

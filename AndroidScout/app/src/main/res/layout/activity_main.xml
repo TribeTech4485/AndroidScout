@@ -282,7 +282,7 @@
                     android:layout_gravity="end"
                     numberpicker:custom_layout="@layout/number_picker_layout"
                     numberpicker:focusable="false"
-                    numberpicker:max="20"
+                    numberpicker:max="12"
                     numberpicker:min="0"
                     numberpicker:unit="1"
                     numberpicker:value="0" />
@@ -314,7 +314,7 @@
                     android:layout_gravity="end"
                     numberpicker:custom_layout="@layout/number_picker_layout"
                     numberpicker:focusable="false"
-                    numberpicker:max="20"
+                    numberpicker:max="8"
                     numberpicker:min="0"
                     numberpicker:unit="1"
                     numberpicker:value="0" />
