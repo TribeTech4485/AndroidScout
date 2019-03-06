@@ -213,6 +213,27 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckedTextView
+                    android:id="@+id/sandstormClimbedDownCheckedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:checked="false"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:text="Climbed Down?"
+                    android:textColor="#AAAAAA" />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/teleOpTextView"
                 android:layout_width="match_parent"
@@ -421,6 +442,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="15sp" />
 
+
                 <Spinner
                     android:id="@+id/driveTypeSpinner"
                     android:layout_width="100dp"
@@ -431,6 +453,36 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Purpose"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/gearTypeSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false" />
+
 
             </LinearLayout>
 

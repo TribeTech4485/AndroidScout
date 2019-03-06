@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements
     private CheckedTextView sandstormAutoCheckedTextView;
     private CheckedTextView sandstormManualCheckedTextView;
     private CheckedTextView sandstormCameraCheckedTextView;
+    private CheckedTextView sandstormClimbedDownCheckedTextView;
     private CheckedTextView connectionLossCheckedTextView;
     private CheckedTextView powerLossCheckedTextView;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements
     private NumberPicker shipCargoNumberPicker;
 
     private Spinner driveTypeSpinner;
+    private Spinner gearTypeSpinner;
 
     private TextView messageText;
 
@@ -97,9 +99,6 @@ public class MainActivity extends AppCompatActivity implements
         // Setup the DriveBase selection drop-down list
         List<String> driveBaseTypes = new ArrayList<String>();
         driveBaseTypes.add("No Data");
-        driveBaseTypes.add("Push");
-        driveBaseTypes.add("Speed");
-        driveBaseTypes.add("Shifting");
         driveBaseTypes.add("Mecanum");
         driveBaseTypes.add("Tank");
         driveBaseTypes.add("Omni-directional");
@@ -108,6 +107,20 @@ public class MainActivity extends AppCompatActivity implements
         driveBaseTypesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
         //driveBaseTypesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         driveTypeSpinner.setAdapter(driveBaseTypesAdapter);
+        ////
+
+        // Setup the interface objects
+        // Setup the gearType selection drop-down list
+        List<String> gearType = new ArrayList<String>();
+        gearType.add("No Data");
+        gearType.add("Push");
+        gearType.add("Speed");
+        gearType.add("Shifting");
+        gearTypeSpinner = (Spinner) findViewById(R.id.gearTypeSpinner);
+        ArrayAdapter<String> gearTypeAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, gearType);
+        gearTypeAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //gearTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gearTypeSpinner.setAdapter(gearTypeAdapter);
         ////
 
         // Setup the interface objects
@@ -150,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements
         sandstormAutoCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormAutoCheckedTextView);
         sandstormManualCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormManualCheckedTextView);
         sandstormCameraCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormCameraCheckedTextView);
+        sandstormClimbedDownCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormClimbedDownCheckedTextView);
 
         spaceHatchesNumberPicker = (NumberPicker) findViewById(R.id.spaceHatchesNumberPicker);
         rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.rocketCargoNumberPicker);
@@ -218,6 +232,13 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        sandstormClimbedDownCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sandstormClimbedDownCheckedTextView.setChecked(!sandstormClimbedDownCheckedTextView.isChecked());
+            }
+        });
+
         powerLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -253,6 +274,7 @@ public class MainActivity extends AppCompatActivity implements
         output += "Rocket Cargo:" + rocketCargoNumberPicker.getValue() + "\n";
         output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
+        output += "Gear Type:" + gearTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
         output += "Height Climbed:" + climbedHeightSpinner.getSelectedItem() +"\n";
         output += "!end!\n";
@@ -278,10 +300,12 @@ public class MainActivity extends AppCompatActivity implements
         sandstormAutoCheckedTextView.setChecked(false);
         sandstormManualCheckedTextView.setChecked(false);
         sandstormCameraCheckedTextView.setChecked(false);
+        sandstormClimbedDownCheckedTextView.setChecked(false);
         zeroNumberPickers();
         powerLossCheckedTextView.setChecked(false);
         connectionLossCheckedTextView.setChecked(false);
         driveTypeSpinner.setSelection(0);
+        gearTypeSpinner.setSelection(0);
         climbedHeightSpinner.setSelection(0);
         teamOtherInfoText.setText("");
     }
