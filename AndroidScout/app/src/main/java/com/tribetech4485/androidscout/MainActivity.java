@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements
     private EditText teamNumberText;
     private EditText teamNameText;
     private EditText teamOtherInfoText;
+    private EditText matchNumberText;
     //
 
     private PackageManager m;
@@ -200,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
+        matchNumberText = (EditText) findViewById(R.id.matchNumberText);
 
         teamOtherInfoText.setInputType(InputType.TYPE_CLASS_TEXT |
                 InputType.TYPE_TEXT_FLAG_MULTI_LINE |
