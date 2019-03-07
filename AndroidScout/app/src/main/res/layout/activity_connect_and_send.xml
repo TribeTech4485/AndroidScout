@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#000000"
+    android:background="@color/screen_background"
 
     tools:context="com.tribetech4485.androidscout.ConnectAndSendActivity">
 
@@ -28,7 +28,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Bluetooth"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="@color/text_normal"
         android:textSize="40sp"
         android:textStyle="bold"
         android:typeface="normal"
@@ -70,7 +70,7 @@
 
                 android:background="@drawable/btn_back"
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textAllCaps="false"
                 android:textSize="20sp"
 
@@ -89,7 +89,7 @@
 
                 android:background="@drawable/btn_back"
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textAllCaps="false"
                 android:textSize="20sp"
 
@@ -108,7 +108,7 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textAlignment="center"
                 android:layout_marginTop="15dp"
                 android:text="TextView" />
@@ -124,8 +124,8 @@
                 android:hint="Device Name"
 
                 android:background="@drawable/back"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#AAAAAA"
+                android:textColor="@color/text_normal"
+                android:textColorHint="@color/text_weak"
 
                 android:textAlignment="center"
                 android:layout_marginTop="190dp"
@@ -142,8 +142,8 @@
                 android:hint="MAC Address"
 
                 android:background="@drawable/back"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#AAAAAA"
+                android:textColor="@color/text_normal"
+                android:textColorHint="@color/text_weak"
 
                 android:textAlignment="center"
                 android:layout_marginTop="15dp"
@@ -156,7 +156,7 @@
 
                 android:background="@drawable/btn_back"
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textAllCaps="false"
                 android:textSize="15sp"
 

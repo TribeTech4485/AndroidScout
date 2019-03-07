@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:textColor="@color/my_spinner_text_color"
-    android:background="@drawable/back"
+    android:background="@drawable/btn_back"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@color/screen_background"
 
     tools:context="com.tribetech4485.androidscout.MainActivity">
 
@@ -14,7 +14,8 @@
         android:layout_width="0px"
         android:layout_height="0px"
         android:focusable="true"
-        android:focusableInTouchMode="true" />
+        android:focusableInTouchMode="true"
+        android:visibility="gone"/>
 
     <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
     to prevent the dummy from receiving focus again -->
@@ -23,7 +24,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:nextFocusLeft="@id/autotext"
-        android:nextFocusUp="@id/autotext" />
+        android:nextFocusUp="@id/autotext"
+
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView"
@@ -37,7 +40,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:text="Tribe Tech 4485"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="@color/text_normal"
         android:textSize="30sp"
         android:textStyle="bold"
         android:typeface="normal"
@@ -91,8 +94,8 @@
                 android:hint="Enter Team Number"
                 android:inputType="number"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textColorHint="#AAAAAA"
+                android:textColor="@color/text_normal"
+                android:textColorHint="@color/text_weak"
                 android:visibility="visible"
 
                 app:layout_constraintHorizontal_bias="0.503"
@@ -113,8 +116,8 @@
                 android:hint="Enter Team Name"
                 android:inputType="textNoSuggestions"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
-                android:textColorHint="#AAAAAA"
+                android:textColor="@color/text_normal"
+                android:textColorHint="@color/text_weak"
                 android:visibility="visible"
 
                 app:layout_constraintHorizontal_bias="0.503"
@@ -132,13 +135,15 @@
                 android:gravity="center"
                 android:text="Sandstorm"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_normal"
                 android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="2dp">
 
                 <CheckedTextView
                     android:id="@+id/sandstormRunCheckedTextView"
@@ -154,7 +159,7 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Robot ran?"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
 
                 <CheckedTextView
                     android:id="@+id/sandstormAutoCheckedTextView"
@@ -170,14 +175,16 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Auto?"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="2dp">
 
                 <CheckedTextView
                     android:id="@+id/sandstormManualCheckedTextView"
@@ -193,7 +200,7 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Manual?"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
 
                 <CheckedTextView
                     android:id="@+id/sandstormCameraCheckedTextView"
@@ -209,7 +216,7 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Camera?"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
 
             </LinearLayout>
 
@@ -231,7 +238,7 @@
                     android:gravity="center"
                     android:paddingLeft="15dp"
                     android:text="Climbed Down?"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
             </LinearLayout>
 
             <TextView
@@ -243,7 +250,7 @@
                 android:gravity="center"
                 android:text="TeleOp"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_normal"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -261,7 +268,7 @@
                     android:gravity="center"
                     android:text="Hatches"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
@@ -293,7 +300,7 @@
                     android:gravity="center"
                     android:text="Cargo (Rockets)"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
@@ -325,7 +332,7 @@
                     android:gravity="center"
                     android:text="Cargo (Center Cargo Ship)"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
@@ -357,7 +364,7 @@
                     android:gravity="center"
                     android:text="Climb Level"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
                 <!--<com.travijuu.numberpicker.library.NumberPicker-->
@@ -382,7 +389,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:spinnerMode="dialog" />
 
             </LinearLayout>
 
@@ -403,7 +411,7 @@
                 android:gravity="center"
                 android:text="Other"
                 android:textAlignment="center"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_normal"
                 android:textSize="20sp" />
 
             <!--<CheckedTextView-->
@@ -420,7 +428,7 @@
                 android:gravity="center"
                 android:paddingLeft="15dp"
                 android:text="Climbed?"
-                android:textColor="#AAAAAA" />
+                android:textColor="@color/text_weak" />
             android:id="@+id/climbedCheckedTextView"
 
             <LinearLayout
@@ -439,7 +447,7 @@
                     android:paddingRight="10dp"
                     android:text="Type of Drive Base"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
 
@@ -452,7 +460,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:spinnerMode="dialog"/>
 
                 </LinearLayout>
 
@@ -469,7 +478,7 @@
                     android:paddingRight="10dp"
                     android:text="Purpose"
                     android:textAlignment="center"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_normal"
                     android:textSize="15sp" />
 
                 <Spinner
@@ -481,7 +490,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="@drawable/back"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:spinnerMode="dialog"/>
 
 
             </LinearLayout>
@@ -502,7 +512,7 @@
                 android:gravity="center"
                 android:paddingLeft="15dp"
                 android:text="Power loss?"
-                android:textColor="#AAAAAA" />
+                android:textColor="@color/text_weak" />
 
             <CheckedTextView
                 android:id="@+id/connectionLossCheckedTextView"
@@ -520,7 +530,7 @@
                 android:gravity="center"
                 android:paddingLeft="15dp"
                 android:text="Connection Loss?"
-                android:textColor="#AAAAAA" />
+                android:textColor="@color/text_weak" />
 
             <!--<LinearLayout-->
             <!--android:layout_width="match_parent"-->
@@ -545,7 +555,7 @@
                 android:maxLines="10"
                 android:minLines="6"
                 android:scrollbars="vertical"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_normal"
                 android:textColorHint="#AAAAAA"
                 android:visibility="visible"
                 tools:layout_editor_absoluteX="-47dp"
@@ -565,7 +575,7 @@
                 android:text="Save Data"
                 android:textAllCaps="false"
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textSize="20sp" />
 
             <Button
@@ -583,7 +593,7 @@
                 android:textAllCaps="false"
 
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textSize="20sp" />
 
             <Button
@@ -602,7 +612,7 @@
                 android:textAllCaps="false"
 
 
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_weak"
                 android:textSize="20sp" />
 
             <TextView

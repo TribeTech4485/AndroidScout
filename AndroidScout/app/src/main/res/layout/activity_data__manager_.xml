@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@color/screen_background"
     tools:context="com.tribetech4485.androidscout.Data_Manager_Activity">
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:text="Move to External"
             android:textAllCaps="false"
 
-            android:textColor="#AAAAAA"
+            android:textColor="@color/text_weak"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -49,7 +49,7 @@
             android:text="Delete"
             android:textAllCaps="false"
 
-            android:textColor="#AAAAAA"
+            android:textColor="@color/text_weak"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
@@ -68,7 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:textColor="#AAAAAA" />
+                    android:textColor="@color/text_weak" />
             </LinearLayout>
         </ScrollView>
 
