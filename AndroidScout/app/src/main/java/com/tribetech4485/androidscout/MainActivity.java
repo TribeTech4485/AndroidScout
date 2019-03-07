@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements
         driveBaseTypes.add("Mecanum");
         driveBaseTypes.add("Tank");
         driveBaseTypes.add("Omni-directional");
+        driveBaseTypes.add("Swerve");
         driveTypeSpinner = (Spinner) findViewById(R.id.driveTypeSpinner);
         ArrayAdapter<String> driveBaseTypesAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, driveBaseTypes);
         driveBaseTypesAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
