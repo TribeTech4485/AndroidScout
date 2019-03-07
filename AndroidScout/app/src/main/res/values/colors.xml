@@ -3,5 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="my_spinner_text_color">#AAAAAA</color>
+
+    <color name="my_spinner_text_color">#555555</color>
+    <color name="screen_background">#FFFFFF</color>
+    <color name="object_border">#00AAFF</color>
+    <color name="object_background">#FFFFFF</color>
+    <color name="text_normal">#000000</color>
+    <color name="text_weak">#555555</color>
 </resources>
