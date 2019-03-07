@@ -42,7 +42,8 @@ public class OpenScreen extends AppCompatActivity {
         pitScoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageText.setText("This feature does not exist yet");
+                startActivity(new Intent(getApplicationContext(), PitScout.class));
+                messageText.setText("");
             }
         });
     }

@@ -394,13 +394,6 @@
 
             </LinearLayout>
 
-            <!--<LinearLayout-->
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"/>
 
             <TextView
                 android:id="@+id/otherTextView"
@@ -413,23 +406,6 @@
                 android:textAlignment="center"
                 android:textColor="@color/text_normal"
                 android:textSize="20sp" />
-
-            <!--<CheckedTextView-->
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/back"
-                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                android:checked="false"
-                android:ems="10"
-                android:gravity="center"
-                android:paddingLeft="15dp"
-                android:text="Climbed?"
-                android:textColor="@color/text_weak" />
-            android:id="@+id/climbedCheckedTextView"
 
             <LinearLayout
                 android:layout_width="match_parent"

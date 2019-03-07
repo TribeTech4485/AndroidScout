@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:numberpicker="http://shemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+
+    tools:context="com.tribetech4485.androidscout.MainActivity">
+
+    <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone"/>
+
+    <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
+    to prevent the dummy from receiving focus again -->
+    <AutoCompleteTextView
+        android:id="@+id/autotext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:nextFocusLeft="@id/autotext"
+        android:nextFocusUp="@id/autotext"
+
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Tribe Tech 4485"
+        android:textAlignment="center"
+        android:textColor="@color/text_normal"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="8dp"
+        android:paddingTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <EditText
+        android:id="@+id/teamNumberText"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/back"
+        android:ems="10"
+        android:hint="Enter Team Number"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/text_normal"
+        android:textColorHint="@color/text_weak"
+        android:visibility="visible"
+
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="-47dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <EditText
+        android:id="@+id/teamNameText"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/back"
+        android:ems="10"
+        android:hint="Enter Team Name"
+        android:inputType="textNoSuggestions"
+        android:textAlignment="center"
+        android:textColor="@color/text_normal"
+        android:textColorHint="@color/text_weak"
+        android:visibility="visible"
+
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="-47dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+        <TextView
+            android:id="@+id/sandstormTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Sandstorm"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp">
+
+            <CheckedTextView
+                android:id="@+id/sandstormRunCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Climb Down?"
+                android:textColor="@color/text_weak" />
+
+            <CheckedTextView
+                android:id="@+id/sandstormAutoCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Auto?"
+                android:textColor="@color/text_weak" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="2dp">
+
+            <CheckedTextView
+                android:id="@+id/sandstormManualCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Manual?"
+                android:textColor="@color/text_weak" />
+
+            <CheckedTextView
+                android:id="@+id/sandstormCameraCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Camera?"
+                android:textColor="@color/text_weak" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/teleOpTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Expected"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <CheckedTextView
+                android:id="@+id/hatchCollectionCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Collects Hatches?"
+                android:textColor="@color/text_weak" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <CheckedTextView
+                android:id="@+id/cargoCollectionCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Collects Cargo?"
+                android:textColor="@color/text_weak" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/spaceHatchesTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Hatches"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <com.travijuu.numberpicker.library.NumberPicker
+                android:id="@+id/spaceHatchesNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                numberpicker:custom_layout="@layout/number_picker_layout"
+                numberpicker:focusable="false"
+                numberpicker:max="20"
+                numberpicker:min="0"
+                numberpicker:unit="11"
+                numberpicker:value="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rocketCargoTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Cargo"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <com.travijuu.numberpicker.library.NumberPicker
+                android:id="@+id/rocketCargoNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                numberpicker:custom_layout="@layout/number_picker_layout"
+                numberpicker:focusable="false"
+                numberpicker:max="12"
+                numberpicker:min="0"
+                numberpicker:unit="1"
+                numberpicker:value="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cyclesPerMatchTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Expected Cycles per Match"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <com.travijuu.numberpicker.library.NumberPicker
+                android:id="@+id/cyclesPerMatchNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                numberpicker:custom_layout="@layout/number_picker_layout"
+                numberpicker:focusable="false"
+                numberpicker:max="12"
+                numberpicker:min="0"
+                numberpicker:unit="1"
+                numberpicker:value="0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+            android:id="@+id/numberOfCratesCollectedTextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Climb Level"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/climbedHeightSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cargoLevelTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Cargo Level"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/cargoLevelSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hatchLevelTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Hatch Level"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/hatchLevelSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/playTypeCollectedTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Play Type"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/playTypeSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/startingPositionCollectedTextView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Cargo Level"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/startingPositionSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/otherTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Other"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Type of Drive Base"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+
+            <Spinner
+                android:id="@+id/driveTypeSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Drive Base Purpose"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textSize="15sp" />
+
+            <Spinner
+                android:id="@+id/gearTypeSpinner"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:focusable="false"
+                android:spinnerMode="dialog"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckedTextView
+                android:id="@+id/liftCheckedTextView"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                android:checked="false"
+                android:ems="10"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:text="Has a Lift?"
+                android:textColor="@color/text_weak" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pitScoutTextView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Pit Comments"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pitScoutEssentialsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="What's broken?\nWhat's the robot's intended purpose?\nAre there any unusual mechanisms?"
+            android:textAlignment="center"
+            android:textColor="@color/text_normal"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/teamOtherInfoText"
+            style="@style/AppTheme"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/back"
+            android:ems="10"
+            android:gravity="top|center_horizontal"
+            android:hint="Pit Information"
+            android:inputType="textAutoComplete|textImeMultiLine"
+            android:lines="8"
+            android:maxLines="10"
+            android:minLines="6"
+            android:scrollbars="vertical"
+            android:textColor="@color/text_normal"
+            android:textColorHint="#AAAAAA"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="-47dp"
+            tools:layout_editor_absoluteY="56dp" />
+
+        <Button
+            android:id="@+id/appendToDataButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+
+            android:background="@drawable/btn_back"
+            android:text="Save Data"
+            android:textAllCaps="false"
+
+            android:textColor="@color/text_weak"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/dataManagerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+
+            android:background="@drawable/btn_back"
+            android:text="Manage Data"
+            android:textAllCaps="false"
+
+
+            android:textColor="@color/text_weak"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/uploadConnectButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="25dp"
+            android:layout_weight="1"
+
+            android:background="@drawable/btn_back"
+            android:text="Upload Data"
+            android:textAllCaps="false"
+
+
+            android:textColor="@color/text_weak"
+            android:textSize="20sp" />
+    </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
