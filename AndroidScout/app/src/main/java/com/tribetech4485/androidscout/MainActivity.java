@@ -270,13 +270,14 @@ public class MainActivity extends AppCompatActivity implements
         output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Camera:" + sandstormCameraCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Manual:" + sandstormManualCheckedTextView.isChecked() + "\n";
+        output += "Samdstorm Climbdown:" + sandstormClimbedDownCheckedTextView.isChecked() + "\n";
         output += "Hatches:" + spaceHatchesNumberPicker.getValue() + "\n";
         output += "Rocket Cargo:" + rocketCargoNumberPicker.getValue() + "\n";
         output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
+        output += "Climb Level:" + climbedHeightSpinner.getSelectedItem() + "\n";
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Gear Type:" + gearTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
-        output += "Height Climbed:" + climbedHeightSpinner.getSelectedItem() +"\n";
         output += "!end!\n";
 
 
