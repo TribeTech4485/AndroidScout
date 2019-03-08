@@ -161,13 +161,13 @@ public class MainActivity extends AppCompatActivity implements
         //
 
         // Game specific objects - Updated for every game (currently setup for FIRST Power-up)
-        sandstormAutoCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormAutoCheckedTextView);
+        sandstormAutoCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormClimbDownCheckedTextView);
         sandstormManualCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormManualCheckedTextView);
         sandstormCameraCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormCameraCheckedTextView);
         sandstormClimbedDownCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormClimbedDownCheckedTextView);
 
         spaceHatchesNumberPicker = (NumberPicker) findViewById(R.id.spaceHatchesNumberPicker);
-        rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.rocketCargoNumberPicker);
+        rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.cargoNumberPicker);
         shipCargoNumberPicker = (NumberPicker) findViewById(R.id.shipCargoNumberPicker);
         spaceHatchesNumberPicker.setMax(20);
         rocketCargoNumberPicker.setMax(12);

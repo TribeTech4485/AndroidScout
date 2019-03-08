@@ -162,7 +162,7 @@
                     android:textColor="@color/text_weak" />
 
                 <CheckedTextView
-                    android:id="@+id/sandstormAutoCheckedTextView"
+                    android:id="@+id/sandstormClimbDownCheckedTextView"
                     android:layout_width="match_parent"
                     android:layout_height="43dp"
                     android:layout_marginLeft="8dp"
@@ -304,7 +304,7 @@
                     android:textSize="15sp" />
 
                 <com.travijuu.numberpicker.library.NumberPicker
-                    android:id="@+id/rocketCargoNumberPicker"
+                    android:id="@+id/cargoNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_gravity="end"
