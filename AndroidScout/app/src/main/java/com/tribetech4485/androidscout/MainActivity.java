@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements
     private PackageManager m;
 
     private String teamDataPath = "TeamData.list";
+    private String skyrimQouteText = "";
+
 
 
     @Override
@@ -263,6 +265,7 @@ public class MainActivity extends AppCompatActivity implements
                 Integer four = rocketCargoNumberPicker.getValue();
                 Integer seven = shipCargoNumberPicker.getValue();
                 String team = teamNumberText.getText().toString();
+                String skyrimName = teamNameText.getText().toString();
 
                 if(team.matches("4485")){
                     if(two.equals(2)){
@@ -271,13 +274,27 @@ public class MainActivity extends AppCompatActivity implements
                                 if(power==true){
                                     if(connection==false){
                                         makeToast("You are the true User, welcome.");
+                                        saveTeamData();
+                                    }else{
+                                        saveTeamData();
                                     }
+                                }else{
+                                    saveTeamData();
                                 }
+                            }else{
+                                saveTeamData();
                             }
+                        }else{
+                            saveTeamData();
                         }
                     }else{
                         saveTeamData();
                 }
+                }else if(skyrimName.contentEquals("I used to be an adventurer like you")) {
+                        skyrimQouteText = "until I took and arrow to the knee";
+                        saveTeamData();
+                }else{
+                    saveTeamData();
                 }
             }
         });
@@ -381,6 +398,8 @@ public class MainActivity extends AppCompatActivity implements
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Gear Type:" + gearTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
+        //easter egg, line will be empty if parameters are not met
+        output += skyrimQouteText + "\n";
         output += "!end!\n";
 
 
