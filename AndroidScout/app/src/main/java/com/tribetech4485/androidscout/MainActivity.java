@@ -334,10 +334,12 @@ public class MainActivity extends AppCompatActivity implements
         output += "!start!\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
+        output += "Match Number:" + matchNumberText.getText().toString() + "\n";
         output += "Sandstorm Run:" + sandstormRunCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Camera:" + sandstormCameraCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Manual:" + sandstormManualCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Climb Down:" + sandstormClimbedDownCheckedTextView.isChecked() + "\n";
         output += "Hatches:" + spaceHatchesNumberPicker.getValue() + "\n";
         output += "Rocket Cargo:" + rocketCargoNumberPicker.getValue() + "\n";
         output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
