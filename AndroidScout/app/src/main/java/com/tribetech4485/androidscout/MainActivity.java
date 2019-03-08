@@ -242,6 +242,8 @@ public class MainActivity extends AppCompatActivity implements
         zeroNumberPickers();
 
         setClickListeners();
+
+        easterEggs();
     }
 
     private void setClickListeners(){
@@ -255,7 +257,28 @@ public class MainActivity extends AppCompatActivity implements
         appendDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveTeamData();
+                boolean power = powerLossCheckedTextView.isChecked();
+                boolean connection = connectionLossCheckedTextView.isChecked();
+                Integer two = spaceHatchesNumberPicker.getValue();
+                Integer four = rocketCargoNumberPicker.getValue();
+                Integer seven = shipCargoNumberPicker.getValue();
+                String team = teamNumberText.getText().toString();
+
+                if(team.matches("4485")){
+                    if(two.equals(2)){
+                        if(four.equals(4)){
+                            if(seven.equals(7)){
+                                if(power==true){
+                                    if(connection==false){
+                                        makeToast("You are the true User, welcome.");
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                        saveTeamData();
+                }
+                }
             }
         });
 
@@ -323,11 +346,16 @@ public class MainActivity extends AppCompatActivity implements
         });
     }
 
+    private void easterEggs(){
+
+    }
+
     private void zeroNumberPickers(){
         spaceHatchesNumberPicker.setValue(0);
         rocketCargoNumberPicker.setValue(0);
         shipCargoNumberPicker.setValue(0);
     }
+
 
     private void saveTeamData() {
         String output = "";
