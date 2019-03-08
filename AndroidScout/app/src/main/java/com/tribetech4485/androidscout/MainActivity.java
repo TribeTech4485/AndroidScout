@@ -267,35 +267,25 @@ public class MainActivity extends AppCompatActivity implements
                 String team = teamNumberText.getText().toString();
                 String skyrimName = teamNameText.getText().toString();
 
-                if(team.matches("4485")){
-                    if(two.equals(2)){
-                        if(four.equals(4)){
-                            if(seven.equals(7)){
-                                if(power==true){
-                                    if(connection==false){
+                // Check for Easter egg conditions
+                if(team.matches("4485")) {
+                    if (two.equals(2)) {
+                        if (four.equals(4)) {
+                            if (seven.equals(7)) {
+                                if (power == true) {
+                                    if (connection == false) {
                                         makeToast("You are the true User, welcome.");
-                                        saveTeamData();
-                                    }else{
-                                        saveTeamData();
+
                                     }
-                                }else{
-                                    saveTeamData();
                                 }
-                            }else{
-                                saveTeamData();
                             }
-                        }else{
-                            saveTeamData();
                         }
-                    }else{
-                        saveTeamData();
-                }
+                    }
                 }else if(skyrimName.contentEquals("I used to be an adventurer like you")) {
                         skyrimQouteText = "until I took and arrow to the knee";
-                        saveTeamData();
-                }else{
-                    saveTeamData();
                 }
+
+                saveTeamData();
             }
         });
 
