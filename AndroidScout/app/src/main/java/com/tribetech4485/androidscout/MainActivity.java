@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements
     private EditText teamNameText;
     private EditText teamOtherInfoText;
     private EditText matchNumberText;
+
+    private ImageView imageView;
     //
 
     private PackageManager m;
@@ -285,7 +288,9 @@ public class MainActivity extends AppCompatActivity implements
                         skyrimQouteText = "until I took and arrow to the knee";
                 }
 
-                saveTeamData();
+                if(team.isEmpty()){
+                    makeToast("You must have a Team Number to Save Data!");
+                } else saveTeamData();
             }
         });
 
@@ -355,6 +360,12 @@ public class MainActivity extends AppCompatActivity implements
 
     private void easterEggs(){
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 
     private void zeroNumberPickers(){
