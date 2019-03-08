@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements
         gearType.add("Push");
         gearType.add("Speed");
         gearType.add("Precision");
+        gearType.add("Climb????");
         gearTypeSpinner = (Spinner) findViewById(R.id.gearTypeSpinner);
         ArrayAdapter<String> gearTypeAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, gearType);
         gearTypeAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
