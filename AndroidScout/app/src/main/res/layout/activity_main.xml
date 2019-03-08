@@ -126,6 +126,28 @@
                 tools:layout_editor_absoluteX="-47dp"
                 tools:layout_editor_absoluteY="56dp" />
 
+            <EditText
+                android:id="@+id/matchNumberText"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/back"
+                android:ems="10"
+                android:hint="Enter Match Number"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/text_normal"
+                android:textColorHint="@color/text_weak"
+                android:visibility="visible"
+
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteX="-47dp"
+                tools:layout_editor_absoluteY="56dp" />
+
             <TextView
                 android:id="@+id/sandstormTextView"
                 android:layout_width="match_parent"
@@ -366,20 +388,6 @@
                     android:textAlignment="center"
                     android:textColor="@color/text_normal"
                     android:textSize="15sp" />
-
-                <!--<com.travijuu.numberpicker.library.NumberPicker-->
-                    android:id="@+id/numberOfCratesCollectedNumberPicker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
-                    android:layout_gravity="end"
-                    numberpicker:custom_layout="@layout/number_picker_layout"
-                    numberpicker:focusable="false"
-                    numberpicker:max="15"
-                    numberpicker:min="0"
-                    numberpicker:unit="1"
-                    numberpicker:value="0" />
-
-
                 <Spinner
                     android:id="@+id/climbedHeightSpinner"
                     android:layout_width="100dp"
@@ -394,6 +402,133 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cargoLevelTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Cargo Level"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_normal"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/cargoLevelSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/hatchLevelTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Hatch Level"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_normal"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/hatchLevelSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/playTypeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Play Type"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_normal"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/playTypeSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/startingPositionTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Starting Position"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_normal"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/startingPositionSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:focusable="false"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/otherTextView"
@@ -443,7 +578,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -452,7 +588,7 @@
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Purpose"
+                    android:text="Drive Base Purpose"
                     android:textAlignment="center"
                     android:textColor="@color/text_normal"
                     android:textSize="15sp" />
@@ -469,6 +605,30 @@
                     android:focusable="false"
                     android:spinnerMode="dialog"/>
 
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckedTextView
+                    android:id="@+id/liftCheckedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/back"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    android:checked="false"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
+                    android:text="Has a Lift?"
+                    android:textColor="@color/text_weak" />
 
             </LinearLayout>
 

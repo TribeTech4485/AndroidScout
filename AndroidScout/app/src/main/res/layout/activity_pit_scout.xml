@@ -474,7 +474,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/playTypeCollectedTextView"
+                android:id="@+id/playTypeTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -506,12 +506,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/startingPositionCollectedTextView"
+                android:id="@+id/startingPositionTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Cargo Level"
+                android:text="Starting Position"
                 android:textAlignment="center"
                 android:textColor="@color/text_normal"
                 android:textSize="15sp" />

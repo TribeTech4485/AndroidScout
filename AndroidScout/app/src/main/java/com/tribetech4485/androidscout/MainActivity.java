@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements
     private CheckedTextView sandstormClimbedDownCheckedTextView;
     private CheckedTextView connectionLossCheckedTextView;
     private CheckedTextView powerLossCheckedTextView;
+    private CheckedTextView liftCheckedTextView;
 
     private NumberPicker spaceHatchesNumberPicker;
     private NumberPicker rocketCargoNumberPicker;
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements
 
     private Spinner driveTypeSpinner;
     private Spinner gearTypeSpinner;
+    private Spinner hatchLevelSpinner;
+    private Spinner cargoLevelSpinner;
+    private Spinner playTypeSpinner;
+    private Spinner startPositionSpinner;
 
     private TextView messageText;
 
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements
     private EditText teamNumberText;
     private EditText teamNameText;
     private EditText teamOtherInfoText;
+    private EditText matchNumberText;
     //
 
     private PackageManager m;
@@ -116,13 +122,64 @@ public class MainActivity extends AppCompatActivity implements
         gearType.add("No Data");
         gearType.add("Push");
         gearType.add("Speed");
-        gearType.add("Shifting");
+        gearType.add("Precision");
+        gearType.add("Climb????");
         gearTypeSpinner = (Spinner) findViewById(R.id.gearTypeSpinner);
         ArrayAdapter<String> gearTypeAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, gearType);
         gearTypeAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
         //gearTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         gearTypeSpinner.setAdapter(gearTypeAdapter);
         ////
+
+        // Setup the HatchLevelValue selection drop-down list
+        List<String> hatchLevelValue = new ArrayList<String>();
+        hatchLevelValue.add("None");
+        hatchLevelValue.add("First");
+        hatchLevelValue.add("Second");
+        hatchLevelValue.add("Third");
+        hatchLevelSpinner = (Spinner) findViewById(R.id.hatchLevelSpinner);
+        ArrayAdapter<String> hatchLevelValueAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, hatchLevelValue);
+        hatchLevelValueAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //hatchLevelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        hatchLevelSpinner.setAdapter(hatchLevelValueAdapter);
+
+        // Setup the CargoLevelValue selection drop-down list
+        List<String> cargoLevelValue = new ArrayList<String>();
+        cargoLevelValue.add("None");
+        cargoLevelValue.add("First");
+        cargoLevelValue.add("Second");
+        cargoLevelValue.add("Third");
+        cargoLevelSpinner = (Spinner) findViewById(R.id.cargoLevelSpinner);
+        ArrayAdapter<String> cargoLevelValueAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, cargoLevelValue);
+        cargoLevelValueAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //cargoLevelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        cargoLevelSpinner.setAdapter(cargoLevelValueAdapter);
+
+        // Setup the StartingPosition selection drop-down list
+        List<String> startingPosition = new ArrayList<String>();
+        startingPosition.add("No Data");
+        startingPosition.add("Left");
+        startingPosition.add("Middle");
+        startingPosition.add("Right");
+        startPositionSpinner = (Spinner) findViewById(R.id.startingPositionSpinner);
+        ArrayAdapter<String> startingPositionAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, startingPosition);
+        startingPositionAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //startingPositionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        startPositionSpinner.setAdapter(startingPositionAdapter);
+
+        // Setup the playType selection drop-down list
+        List<String> playType = new ArrayList<String>();
+        playType.add("No Data");
+        playType.add("Cargo/Hatch (Rocket and Ship) Runner");
+        playType.add("Defense");
+        playType.add("Rocket Specific Runner");
+        playType.add("Ship Specific Runner");
+        playType.add("Other(Explain in Comments)");
+        playTypeSpinner = (Spinner) findViewById(R.id.playTypeSpinner);
+        ArrayAdapter<String> playTypeAdapter = new ArrayAdapter<String>(this, R.layout.spinner_layout, playType);
+        playTypeAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item_custom);
+        //playTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        playTypeSpinner.setAdapter(playTypeAdapter);
 
         // Setup the interface objects
         // Setup the ClimbedValue selection drop-down list
@@ -139,10 +196,13 @@ public class MainActivity extends AppCompatActivity implements
         ////
 
 
+
+
         // Setup the text boxes
         teamNumberText = (EditText) findViewById(R.id.teamNumberText);
         teamNameText = (EditText) findViewById(R.id.teamNameText);
         teamOtherInfoText = (EditText) findViewById(R.id.teamOtherInfoText);
+        matchNumberText = (EditText) findViewById(R.id.matchNumberText);
 
         teamOtherInfoText.setInputType(InputType.TYPE_CLASS_TEXT |
                 InputType.TYPE_TEXT_FLAG_MULTI_LINE |
@@ -165,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements
         sandstormManualCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormManualCheckedTextView);
         sandstormCameraCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormCameraCheckedTextView);
         sandstormClimbedDownCheckedTextView = (CheckedTextView) findViewById(R.id.sandstormClimbedDownCheckedTextView);
+        liftCheckedTextView = (CheckedTextView) findViewById(R.id.liftCheckedTextView);
 
         spaceHatchesNumberPicker = (NumberPicker) findViewById(R.id.spaceHatchesNumberPicker);
         rocketCargoNumberPicker = (NumberPicker) findViewById(R.id.cargoNumberPicker);
@@ -181,6 +242,8 @@ public class MainActivity extends AppCompatActivity implements
         zeroNumberPickers();
 
         setClickListeners();
+
+        easterEggs();
     }
 
     private void setClickListeners(){
@@ -194,7 +257,28 @@ public class MainActivity extends AppCompatActivity implements
         appendDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveTeamData();
+                boolean power = powerLossCheckedTextView.isChecked();
+                boolean connection = connectionLossCheckedTextView.isChecked();
+                Integer two = spaceHatchesNumberPicker.getValue();
+                Integer four = rocketCargoNumberPicker.getValue();
+                Integer seven = shipCargoNumberPicker.getValue();
+                String team = teamNumberText.getText().toString();
+
+                if(team.matches("4485")){
+                    if(two.equals(2)){
+                        if(four.equals(4)){
+                            if(seven.equals(7)){
+                                if(power==true){
+                                    if(connection==false){
+                                        makeToast("You are the true User, welcome.");
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                        saveTeamData();
+                }
+                }
             }
         });
 
@@ -240,6 +324,13 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        liftCheckedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                liftCheckedTextView.setChecked(!liftCheckedTextView.isChecked());
+            }
+        });
+
         powerLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,11 +346,16 @@ public class MainActivity extends AppCompatActivity implements
         });
     }
 
+    private void easterEggs(){
+
+    }
+
     private void zeroNumberPickers(){
         spaceHatchesNumberPicker.setValue(0);
         rocketCargoNumberPicker.setValue(0);
         shipCargoNumberPicker.setValue(0);
     }
+
 
     private void saveTeamData() {
         String output = "";
@@ -267,15 +363,21 @@ public class MainActivity extends AppCompatActivity implements
         output += "!start!\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
+        output += "Match Number:" + matchNumberText.getText().toString() + "\n";
         output += "Sandstorm Run:" + sandstormRunCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Camera:" + sandstormCameraCheckedTextView.isChecked() + "\n";
         output += "Sandstorm Manual:" + sandstormManualCheckedTextView.isChecked() + "\n";
-        output += "Samdstorm Climbdown:" + sandstormClimbedDownCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Climb Down:" + sandstormClimbedDownCheckedTextView.isChecked() + "\n";
         output += "Hatches:" + spaceHatchesNumberPicker.getValue() + "\n";
         output += "Rocket Cargo:" + rocketCargoNumberPicker.getValue() + "\n";
         output += "Ship Cargo:" + shipCargoNumberPicker.getValue() + "\n";
-        output += "Climb Level:" + climbedHeightSpinner.getSelectedItem() + "\n";
+        output += "Height Climbed:" + climbedHeightSpinner.getSelectedItem() +"\n";
+        output += "Hatch Level:" + hatchLevelSpinner.getSelectedItem() +"\n";
+        output += "Cargo Level:" + cargoLevelSpinner.getSelectedItem() +"\n";
+        output += "Play Type:" + playTypeSpinner.getSelectedItem() +"\n";
+        output += "Start Position:" + startPositionSpinner.getSelectedItem() +"\n";
+        output += "Has Lift:" + liftCheckedTextView.isChecked() + "\n";
         output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
         output += "Gear Type:" + gearTypeSpinner.getSelectedItem() + "\n";
         output += "Team Other Info:" + teamOtherInfoText.getText().toString() + "\n";
@@ -309,6 +411,10 @@ public class MainActivity extends AppCompatActivity implements
         driveTypeSpinner.setSelection(0);
         gearTypeSpinner.setSelection(0);
         climbedHeightSpinner.setSelection(0);
+        cargoLevelSpinner.setSelection(0);
+        hatchLevelSpinner.setSelection(0);
+        playTypeSpinner.setSelection(0);
+        startPositionSpinner.setSelection(0);
         teamOtherInfoText.setText("");
     }
 
