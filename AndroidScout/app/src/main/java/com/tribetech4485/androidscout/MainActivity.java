@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements
     private String teamDataPath = "TeamData.list";
     private String skyrimQouteText = "";
 
+    MediaPlayer imageEasterEggMp;
 
 
     @Override
@@ -240,6 +243,8 @@ public class MainActivity extends AppCompatActivity implements
         shipCargoNumberPicker.setMax(8);
         //
 
+        imageView = (ImageView) findViewById(R.id.imageView);
+
         messageText = (TextView) findViewById(R.id.messageTextView);
 
         m = getPackageManager();
@@ -249,6 +254,11 @@ public class MainActivity extends AppCompatActivity implements
         setClickListeners();
 
         easterEggs();
+
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.get_ready);
+        mp.start();
+
+        imageEasterEggMp = MediaPlayer.create(this, R.raw.its_monsoon_season1);
     }
 
     private void setClickListeners(){
@@ -363,7 +373,7 @@ public class MainActivity extends AppCompatActivity implements
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                imageEasterEggMp.start();
             }
         });
     }
