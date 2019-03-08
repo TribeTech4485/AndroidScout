@@ -162,7 +162,7 @@
                 android:textColor="@color/text_weak" />
 
             <CheckedTextView
-                android:id="@+id/sandstormAutoCheckedTextView"
+                android:id="@+id/sandstormClimbDownCheckedTextView"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginLeft="8dp"
@@ -282,6 +282,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
@@ -297,17 +298,17 @@
                 android:textColor="@color/text_normal"
                 android:textSize="15sp" />
 
-            <com.travijuu.numberpicker.library.NumberPicker
-                android:id="@+id/spaceHatchesNumberPicker"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/hatchesNumberPicker"
+                android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_gravity="end"
-                numberpicker:custom_layout="@layout/number_picker_layout"
-                numberpicker:focusable="false"
-                numberpicker:max="20"
-                numberpicker:min="0"
-                numberpicker:unit="11"
-                numberpicker:value="0" />
+
+                android:background="@drawable/back"
+
+                android:inputType="number"
+                android:textAlignment="center"
+                />
 
         </LinearLayout>
 
@@ -329,17 +330,14 @@
                 android:textColor="@color/text_normal"
                 android:textSize="15sp" />
 
-            <com.travijuu.numberpicker.library.NumberPicker
-                android:id="@+id/rocketCargoNumberPicker"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/cargoNumberPicker"
+                android:layout_width="200dp"
                 android:layout_height="45dp"
-                android:layout_gravity="end"
-                numberpicker:custom_layout="@layout/number_picker_layout"
-                numberpicker:focusable="false"
-                numberpicker:max="12"
-                numberpicker:min="0"
-                numberpicker:unit="1"
-                numberpicker:value="0" />
+                android:inputType="number"
+                android:background="@drawable/back"
+                android:textAlignment="center"
+                />
 
         </LinearLayout>
 
@@ -361,17 +359,14 @@
                 android:textColor="@color/text_normal"
                 android:textSize="15sp" />
 
-            <com.travijuu.numberpicker.library.NumberPicker
+            <EditText
                 android:id="@+id/cyclesPerMatchNumberPicker"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_gravity="end"
-                numberpicker:custom_layout="@layout/number_picker_layout"
-                numberpicker:focusable="false"
-                numberpicker:max="12"
-                numberpicker:min="0"
-                numberpicker:unit="1"
-                numberpicker:value="0" />
+                android:background="@drawable/back"
+                android:inputType="number"
+                android:textAlignment="center"/>
 
         </LinearLayout>
 
