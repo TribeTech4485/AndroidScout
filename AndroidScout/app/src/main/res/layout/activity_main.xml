@@ -398,7 +398,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
@@ -430,7 +430,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
@@ -462,7 +462,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
@@ -494,7 +494,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
@@ -526,7 +526,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
             </LinearLayout>
 
@@ -572,7 +572,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog"/>
+                    android:spinnerMode="dropdown"/>
 
                 </LinearLayout>
 
@@ -603,7 +603,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/back"
                     android:focusable="false"
-                    android:spinnerMode="dialog"/>
+                    android:spinnerMode="dropdown"/>
 
 
             </LinearLayout>
