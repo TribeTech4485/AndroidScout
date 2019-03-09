@@ -93,6 +93,7 @@ public class Data_Manager_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteMp.start();
+                deleteFile();
             }
         });
     }

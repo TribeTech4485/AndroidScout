@@ -305,6 +305,21 @@ public class PitScout extends AppCompatActivity {
         teamNumberText.setText("");
         teamNameText.setText("");
         teamPitInfoText.setText("");
+        sandstormAutoCheckedTextView.setChecked(false);
+        sandstormCameraCheckedTextView.setChecked(false);
+        sandstormClimbDownCheckedTextView.setChecked(false);
+        sandstormManualCheckedTextView.setChecked(false);
+        hatchCollectionCheckedTextView.setChecked(false);
+        numHatchesText.setText("");
+        numCargoText.setText("");
+        numCyclesPerMatch.setText("");
+        hatchLevelSpinner.setSelection(0);
+        cargoLevelSpinner.setSelection(0);
+        playTypeSpinner.setSelection(0);
+        startingPositionSpinner.setSelection(0);
+        liftCheckedTextView.setChecked(false);
+        driveTypeSpinner.setSelection(0);
+        gearTypeSpinner.setSelection(0);
     }
 
     private void makeToast(String toastedMessage) {

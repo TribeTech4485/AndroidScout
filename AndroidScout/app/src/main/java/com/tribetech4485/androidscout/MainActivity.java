@@ -465,6 +465,8 @@ public class MainActivity extends AppCompatActivity implements
         playTypeSpinner.setSelection(0);
         startPositionSpinner.setSelection(0);
         teamOtherInfoText.setText("");
+        matchNumberText.setText("");
+        liftCheckedTextView.setChecked(false);
     }
 
     private void setMessage(String message, boolean error) {
