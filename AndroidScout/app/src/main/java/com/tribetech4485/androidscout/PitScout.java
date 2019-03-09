@@ -3,6 +3,7 @@ package com.tribetech4485.androidscout;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -63,6 +64,8 @@ public class PitScout extends AppCompatActivity {
     private Spinner gearTypeSpinner;
 
     private String teamDataPath = "TeamData.list";
+
+    MediaPlayer teamNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,6 +184,8 @@ public class PitScout extends AppCompatActivity {
         uploadConnectButton = (Button) findViewById(R.id.uploadConnectButton);
         dataManageButton = (Button) findViewById(R.id.dataManagerButton);
 
+        teamNumber = MediaPlayer.create(this, R.raw.dooh);
+
         setClickListeners();
     }
 
@@ -195,7 +200,12 @@ public class PitScout extends AppCompatActivity {
         appendDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveTeamData();
+                String team = teamNumberText.getText().toString();
+
+                if(team.isEmpty()){
+                    makeToast("You must have a Team Number to Save Data!");
+                    teamNumber.start();
+                } else saveTeamData();
             }
         });
 

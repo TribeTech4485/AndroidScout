@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements
     private String skyrimQouteText = "";
 
     MediaPlayer imageEasterEggMp;
-
+    MediaPlayer connectionMp;
+    MediaPlayer otherInfo;
+    MediaPlayer teamNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -259,6 +261,9 @@ public class MainActivity extends AppCompatActivity implements
         mp.start();
 
         imageEasterEggMp = MediaPlayer.create(this, R.raw.its_monsoon_season1);
+        otherInfo = MediaPlayer.create(this, R.raw.bonus_round1);
+        connectionMp = MediaPlayer.create(this, R.raw.what_are_you_doing);
+        teamNumber = MediaPlayer.create(this, R.raw.dooh);
     }
 
     private void setClickListeners(){
@@ -300,6 +305,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 if(team.isEmpty()){
                     makeToast("You must have a Team Number to Save Data!");
+                    teamNumber.start();
                 } else saveTeamData();
             }
         });
@@ -363,7 +369,20 @@ public class MainActivity extends AppCompatActivity implements
         connectionLossCheckedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connectionLossCheckedTextView.setChecked(!connectionLossCheckedTextView.isChecked());
+                boolean power = powerLossCheckedTextView.isChecked();
+
+                if(power==true){
+                        connectionMp.start();
+                } else {
+                    connectionLossCheckedTextView.setChecked(!connectionLossCheckedTextView.isChecked());
+                }
+            }
+        });
+
+        teamOtherInfoText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                otherInfo.start();
             }
         });
     }

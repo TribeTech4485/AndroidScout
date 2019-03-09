@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,8 @@ public class Data_Manager_Activity extends AppCompatActivity {
     private TextView fileText;
 
     private String teamDataPath = "TeamData.list";
+
+    MediaPlayer deleteMp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class Data_Manager_Activity extends AppCompatActivity {
                 setMessage(readDataFile(), false);
             }
         });
+
+        deleteMp = MediaPlayer.create(this, R.raw.try_again);
+
+        listeners();
     }
 
     private String readDataFile() {
@@ -79,6 +86,15 @@ public class Data_Manager_Activity extends AppCompatActivity {
             setMessage(ex.getMessage(), true);
         }
         return readString;
+    }
+
+    private void listeners(){
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMp.start();
+            }
+        });
     }
 
     private void setMessage(String message, boolean error) {
