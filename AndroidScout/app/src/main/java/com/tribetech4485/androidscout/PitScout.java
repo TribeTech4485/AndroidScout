@@ -66,6 +66,7 @@ public class PitScout extends AppCompatActivity {
     private String teamDataPath = "TeamData.list";
 
     MediaPlayer teamNumber;
+    MediaPlayer startMp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,8 +186,11 @@ public class PitScout extends AppCompatActivity {
         dataManageButton = (Button) findViewById(R.id.dataManagerButton);
 
         teamNumber = MediaPlayer.create(this, R.raw.dooh);
+        startMp = MediaPlayer.create(this, R.raw.fight);
 
         setClickListeners();
+
+        startMp.start();
     }
 
     private void setClickListeners() {
@@ -259,11 +263,30 @@ public class PitScout extends AppCompatActivity {
             }
         });
     }
+
     private void saveTeamData() {
         String output = "";
 
         output += "!start!\n";
+        output += "Team Number:" + teamNumberText.getText().toString() + "\n";
+        output += "Team Name:" + teamNameText.getText().toString() + "\n";
+        output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Camera:" + sandstormCameraCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Manual:" + sandstormManualCheckedTextView.isChecked() + "\n";
+        output += "Sandstorm Climb Down:" + sandstormClimbDownCheckedTextView.isChecked() + "\n";
+        output += "Hatches Per Match:" + numHatchesText.getText() + "\n";
+        output += "Cargo Per Match:" + numCargoText.getText() + "\n";
+        output += "Cycles Per Match:" + numCyclesPerMatch.getText() + "\n";
+        output += "Height Climbed:" + climbedHeightSpinner.getSelectedItem() +"\n";
+        output += "Hatch Level:" + hatchLevelSpinner.getSelectedItem() +"\n";
+        output += "Cargo Level:" + cargoLevelSpinner.getSelectedItem() +"\n";
+        output += "Play Type:" + playTypeSpinner.getSelectedItem() +"\n";
+        output += "Start Position:" + startingPositionSpinner.getSelectedItem() +"\n";
+        output += "Has Lift:" + liftCheckedTextView.isChecked() + "\n";
+        output += "Drive Type:" + driveTypeSpinner.getSelectedItem() + "\n";
+        output += "Gear Type:" + gearTypeSpinner.getSelectedItem() + "\n";
         output += "Pit Scout Comments:" + teamPitInfoText.getText().toString() + "\n";
+        output += "!stop!\n";
 
         FileOutputStream writeStream;
         try {
