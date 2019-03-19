@@ -94,6 +94,7 @@ public class Data_Manager_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 deleteMp.start();
                 deleteFile();
+                fileText.setText("");
             }
         });
     }
