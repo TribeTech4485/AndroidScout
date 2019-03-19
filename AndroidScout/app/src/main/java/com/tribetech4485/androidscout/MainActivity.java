@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.travijuu.numberpicker.library.NumberPicker;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -264,6 +265,9 @@ public class MainActivity extends AppCompatActivity implements
         otherInfo = MediaPlayer.create(this, R.raw.bonus_round1);
         connectionMp = MediaPlayer.create(this, R.raw.what_are_you_doing);
         teamNumber = MediaPlayer.create(this, R.raw.dooh);
+
+
+
     }
 
     private void setClickListeners(){
@@ -405,9 +409,25 @@ public class MainActivity extends AppCompatActivity implements
 
 
     private void saveTeamData() {
+
+        String scoutString = "";
+        String scoutNumberPath = "ScoutNumber";
+
+        try{
+            FileInputStream fileRead = openFileInput(scoutNumberPath);
+            int content;
+            while ((content = fileRead.read()) != -1) {
+                scoutString += (char) content;
+            }
+            fileRead.close();
+        } catch(Exception ex){
+            teamOtherInfoText.setText("Error:" + ex.getMessage());
+        }
+
         String output = "";
 
         output += "!start!\n";
+        output += "Scout Number:" + scoutString + "\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
         output += "Match Number:" + matchNumberText.getText().toString() + "\n";

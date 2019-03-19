@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +68,7 @@ public class PitScout extends AppCompatActivity {
 
     MediaPlayer teamNumber;
     MediaPlayer startMp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -265,9 +267,25 @@ public class PitScout extends AppCompatActivity {
     }
 
     private void saveTeamData() {
+
+        String scoutString = "";
+        String scoutNumberPath = "ScoutNumber";
+
+        try{
+            FileInputStream fileRead = openFileInput(scoutNumberPath);
+            int content;
+            while ((content = fileRead.read()) != -1) {
+                scoutString += (char) content;
+            }
+            fileRead.close();
+        } catch(Exception ex){
+            teamPitInfoText.setText("Error:" + ex.getMessage());
+        }
+
         String output = "";
 
         output += "!start!\n";
+        output += "Scout Number:" + scoutString + "\n";
         output += "Team Number:" + teamNumberText.getText().toString() + "\n";
         output += "Team Name:" + teamNameText.getText().toString() + "\n";
         output += "Sandstorm Auto:" + sandstormAutoCheckedTextView.isChecked() + "\n";
